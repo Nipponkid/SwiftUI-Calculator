@@ -19,106 +19,40 @@ struct ContentView: View {
                 .multilineTextAlignment(.trailing)
             
             HStack {
-                Button(action: {
-                    self.number += "7"
-                }) {
-                    Text("7")
-                        .padding()
-                        .foregroundColor(Color.black)
-                        .frame(maxWidth: .infinity)
-                }
-                .background(Color.gray)
-                .frame(maxWidth: .infinity)
+                DigitButton(digit: "7")
+                    .frame(maxWidth: .infinity)
+
+                DigitButton(digit: "8")
+                    .frame(maxWidth: .infinity)
                 
-                Button(action: {
-                    self.number += "8"
-                }) {
-                    Text("8")
-                        .padding()
-                        .foregroundColor(Color.black)
-                        .frame(maxWidth: .infinity)
-                }
-                .background(Color.gray)
-                
-                Button(action: {
-                    self.number += "9"
-                }) {
-                    Text("9")
-                        .padding()
-                        .foregroundColor(Color.black)
-                        .frame(maxWidth: .infinity)
-                }
-                .background(Color.gray)
+                DigitButton(digit: "9")
+                    .frame(maxWidth: .infinity)
             }
             
             Spacer()
             
             HStack {
-                Button(action: {
-                    self.number += "4"
-                }) {
-                    Text("4")
-                        .padding()
-                        .foregroundColor(Color.black)
-                        .frame(maxWidth: .infinity)
-                }
-                .background(Color.gray)
-                .frame(maxWidth: .infinity)
+                DigitButton(digit: "4")
+                    .frame(maxWidth: .infinity)
+
+                DigitButton(digit: "5")
+                    .frame(maxWidth: .infinity)
                 
-                Button(action: {
-                    self.number += "5"
-                }) {
-                    Text("5")
-                        .padding()
-                        .foregroundColor(Color.black)
-                        .frame(maxWidth: .infinity)
-                }
-                .background(Color.gray)
-                
-                Button(action: {
-                    self.number += "6"
-                }) {
-                    Text("6")
-                        .padding()
-                        .foregroundColor(Color.black)
-                        .frame(maxWidth: .infinity)
-                }
-                .background(Color.gray)
+                DigitButton(digit: "6")
+                    .frame(maxWidth: .infinity)
             }
             
             Spacer()
             
             HStack {
-                Button(action: {
-                    self.number += "1"
-                }) {
-                    Text("1")
-                        .padding()
-                        .foregroundColor(Color.black)
-                        .frame(maxWidth: .infinity)
-                }
-                .background(Color.gray)
-                .frame(maxWidth: .infinity)
+                DigitButton(digit: "1")
+                    .frame(maxWidth: .infinity)
+
+                DigitButton(digit: "2")
+                    .frame(maxWidth: .infinity)
                 
-                Button(action: {
-                    self.number += "2"
-                }) {
-                    Text("2")
-                        .padding()
-                        .foregroundColor(Color.black)
-                        .frame(maxWidth: .infinity)
-                }
-                .background(Color.gray)
-                
-                Button(action: {
-                    self.number += "3"
-                }) {
-                    Text("3")
-                        .padding()
-                        .foregroundColor(Color.black)
-                        .frame(maxWidth: .infinity)
-                }
-                .background(Color.gray)
+                DigitButton(digit: "3")
+                    .frame(maxWidth: .infinity)
             }
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
