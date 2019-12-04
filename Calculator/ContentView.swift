@@ -19,39 +19,39 @@ struct ContentView: View {
                 .multilineTextAlignment(.trailing)
             
             HStack {
-                DigitButton(digit: "7")
+                DigitButton(digit: "7", number: $number)
                     .frame(maxWidth: .infinity)
 
-                DigitButton(digit: "8")
+                DigitButton(digit: "8", number: $number)
                     .frame(maxWidth: .infinity)
                 
-                DigitButton(digit: "9")
+                DigitButton(digit: "9", number: $number)
                     .frame(maxWidth: .infinity)
             }
             
             Spacer()
             
             HStack {
-                DigitButton(digit: "4")
+                DigitButton(digit: "4", number: $number)
                     .frame(maxWidth: .infinity)
 
-                DigitButton(digit: "5")
+                DigitButton(digit: "5", number: $number)
                     .frame(maxWidth: .infinity)
                 
-                DigitButton(digit: "6")
+                DigitButton(digit: "6", number: $number)
                     .frame(maxWidth: .infinity)
             }
             
             Spacer()
             
             HStack {
-                DigitButton(digit: "1")
+                DigitButton(digit: "1", number: $number)
                     .frame(maxWidth: .infinity)
 
-                DigitButton(digit: "2")
+                DigitButton(digit: "2", number: $number)
                     .frame(maxWidth: .infinity)
                 
-                DigitButton(digit: "3")
+                DigitButton(digit: "3", number: $number)
                     .frame(maxWidth: .infinity)
             }
         }
