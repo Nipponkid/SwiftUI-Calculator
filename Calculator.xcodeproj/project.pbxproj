@@ -16,6 +16,7 @@
 		1B00CC2D238C6CE6000B4E7E /* NumberCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B00CC2C238C6CE6000B4E7E /* NumberCreator.swift */; };
 		1B00CC2F238C6D4F000B4E7E /* NumberCreatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B00CC2E238C6D4F000B4E7E /* NumberCreatorTests.swift */; };
 		1B6B53A2238F6D2F00CCDEEA /* DigitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B53A1238F6D2F00CCDEEA /* DigitButton.swift */; };
+		1BD2B8D7239984FC0055BAC1 /* NumberDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD2B8D6239984FC0055BAC1 /* NumberDisplay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		1B00CC2C238C6CE6000B4E7E /* NumberCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCreator.swift; sourceTree = "<group>"; };
 		1B00CC2E238C6D4F000B4E7E /* NumberCreatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCreatorTests.swift; sourceTree = "<group>"; };
 		1B6B53A1238F6D2F00CCDEEA /* DigitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitButton.swift; sourceTree = "<group>"; };
+		1BD2B8D6239984FC0055BAC1 /* NumberDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberDisplay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				1B00CC0C238A1A85000B4E7E /* Preview Content */,
 				1B00CC2C238C6CE6000B4E7E /* NumberCreator.swift */,
 				1B6B53A1238F6D2F00CCDEEA /* DigitButton.swift */,
+				1BD2B8D6239984FC0055BAC1 /* NumberDisplay.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				1B00CC05238A1A80000B4E7E /* AppDelegate.swift in Sources */,
 				1B00CC07238A1A80000B4E7E /* SceneDelegate.swift in Sources */,
 				1B00CC09238A1A80000B4E7E /* ContentView.swift in Sources */,
+				1BD2B8D7239984FC0055BAC1 /* NumberDisplay.swift in Sources */,
 				1B6B53A2238F6D2F00CCDEEA /* DigitButton.swift in Sources */,
 				1B00CC2D238C6CE6000B4E7E /* NumberCreator.swift in Sources */,
 			);

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DigitButton: View {
     let digit: String
-    @Binding var number: String
+    @Binding private(set) var number: String
     
     var body: some View {
         Button(action: appendDigitToNumberString) {

@@ -9,15 +9,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var number = "0"
+    @State private var input = "0"
     
     var body: some View {
         VStack {
-            Text(number)
-                .font(.system(size: 60))
+            NumberDisplay(number: input)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
-                .multilineTextAlignment(.trailing)
-                .foregroundColor(Color.white)
             
             HStack {
                 Button(action: {}) {
@@ -56,13 +53,13 @@ struct ContentView: View {
             Spacer()
             
             HStack {
-                DigitButton(digit: "7", number: $number)
+                DigitButton(digit: "7", number: $input)
                     .frame(maxWidth: .infinity)
 
-                DigitButton(digit: "8", number: $number)
+                DigitButton(digit: "8", number: $input)
                     .frame(maxWidth: .infinity)
                 
-                DigitButton(digit: "9", number: $number)
+                DigitButton(digit: "9", number: $input)
                     .frame(maxWidth: .infinity)
                 
                 Button(action: {}) {
@@ -77,13 +74,13 @@ struct ContentView: View {
             Spacer()
             
             HStack {
-                DigitButton(digit: "4", number: $number)
+                DigitButton(digit: "4", number: $input)
                     .frame(maxWidth: .infinity)
 
-                DigitButton(digit: "5", number: $number)
+                DigitButton(digit: "5", number: $input)
                     .frame(maxWidth: .infinity)
                 
-                DigitButton(digit: "6", number: $number)
+                DigitButton(digit: "6", number: $input)
                     .frame(maxWidth: .infinity)
                 
                 Button(action: {}) {
@@ -98,13 +95,13 @@ struct ContentView: View {
             Spacer()
             
             HStack {
-                DigitButton(digit: "1", number: $number)
+                DigitButton(digit: "1", number: $input)
                     .frame(maxWidth: .infinity)
 
-                DigitButton(digit: "2", number: $number)
+                DigitButton(digit: "2", number: $input)
                     .frame(maxWidth: .infinity)
                 
-                DigitButton(digit: "3", number: $number)
+                DigitButton(digit: "3", number: $input)
                     .frame(maxWidth: .infinity)
                 
                 Button(action: {}) {
@@ -119,7 +116,7 @@ struct ContentView: View {
             Spacer()
             
             HStack {
-                DigitButton(digit: "0", number: $number)
+                DigitButton(digit: "0", number: $input)
                     .frame(maxWidth: .infinity)
                 
                 Button(action: {}) {
