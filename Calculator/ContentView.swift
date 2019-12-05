@@ -17,6 +17,43 @@ struct ContentView: View {
                 .font(.system(size: 60))
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
                 .multilineTextAlignment(.trailing)
+                .foregroundColor(Color.white)
+            
+            HStack {
+                Button(action: {}) {
+                    Text("AC")
+                        .padding()
+                        .foregroundColor(Color.black)
+                        .frame(maxWidth: .infinity)
+                }
+                .background(Color.white)
+                
+                Button(action: {}) {
+                    Text("+/-")
+                        .padding()
+                        .foregroundColor(Color.black)
+                        .frame(maxWidth: .infinity)
+                }
+                .background(Color.white)
+                
+                Button(action: {}) {
+                    Text("%")
+                        .padding()
+                        .foregroundColor(Color.black)
+                        .frame(maxWidth: .infinity)
+                }
+                .background(Color.white)
+                
+                Button(action: {}) {
+                    Text("÷")
+                        .padding()
+                        .foregroundColor(Color.black)
+                        .frame(maxWidth: .infinity)
+                }
+                .background(Color.orange)
+            }
+            
+            Spacer()
             
             HStack {
                 DigitButton(digit: "7", number: $number)
@@ -27,6 +64,14 @@ struct ContentView: View {
                 
                 DigitButton(digit: "9", number: $number)
                     .frame(maxWidth: .infinity)
+                
+                Button(action: {}) {
+                    Text("x")
+                        .padding()
+                        .foregroundColor(Color.black)
+                        .frame(maxWidth: .infinity)
+                }
+                .background(Color.orange)
             }
             
             Spacer()
@@ -40,6 +85,14 @@ struct ContentView: View {
                 
                 DigitButton(digit: "6", number: $number)
                     .frame(maxWidth: .infinity)
+                
+                Button(action: {}) {
+                    Text("-")
+                        .padding()
+                        .foregroundColor(Color.black)
+                        .frame(maxWidth: .infinity)
+                }
+                .background(Color.orange)
             }
             
             Spacer()
@@ -53,9 +106,41 @@ struct ContentView: View {
                 
                 DigitButton(digit: "3", number: $number)
                     .frame(maxWidth: .infinity)
+                
+                Button(action: {}) {
+                    Text("+")
+                        .padding()
+                        .foregroundColor(Color.black)
+                        .frame(maxWidth: .infinity)
+                }
+                .background(Color.orange)
+            }
+            
+            Spacer()
+            
+            HStack {
+                DigitButton(digit: "0", number: $number)
+                    .frame(maxWidth: .infinity)
+                
+                Button(action: {}) {
+                    Text(".")
+                        .padding()
+                        .foregroundColor(Color.black)
+                        .frame(maxWidth: .infinity)
+                }
+                .background(Color.gray)
+                
+                Button(action: {}) {
+                    Text("=")
+                        .padding()
+                        .foregroundColor(Color.black)
+                        .frame(maxWidth: .infinity)
+                }
+                .background(Color.orange)
             }
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+        .background(Color.black)
     }
 }
 
