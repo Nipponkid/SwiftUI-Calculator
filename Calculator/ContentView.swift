@@ -54,13 +54,8 @@ struct ContentView: View {
             
             HStack {
                 DigitButton(digit: "7", number: $input)
-                    .frame(maxWidth: .infinity)
-
                 DigitButton(digit: "8", number: $input)
-                    .frame(maxWidth: .infinity)
-                
                 DigitButton(digit: "9", number: $input)
-                    .frame(maxWidth: .infinity)
                 
                 Button(action: {}) {
                     Text("x")
@@ -75,13 +70,8 @@ struct ContentView: View {
             
             HStack {
                 DigitButton(digit: "4", number: $input)
-                    .frame(maxWidth: .infinity)
-
                 DigitButton(digit: "5", number: $input)
-                    .frame(maxWidth: .infinity)
-                
                 DigitButton(digit: "6", number: $input)
-                    .frame(maxWidth: .infinity)
                 
                 Button(action: {}) {
                     Text("-")
@@ -96,14 +86,8 @@ struct ContentView: View {
             
             HStack {
                 DigitButton(digit: "1", number: $input)
-                    .frame(maxWidth: .infinity)
-
                 DigitButton(digit: "2", number: $input)
-                    .frame(maxWidth: .infinity)
-                
                 DigitButton(digit: "3", number: $input)
-                    .frame(maxWidth: .infinity)
-                
                 AdditionButton()
             }
             
