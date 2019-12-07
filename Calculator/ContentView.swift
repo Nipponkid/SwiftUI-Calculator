@@ -104,13 +104,7 @@ struct ContentView: View {
                 DigitButton(digit: "3", number: $input)
                     .frame(maxWidth: .infinity)
                 
-                Button(action: {}) {
-                    Text("+")
-                        .padding()
-                        .foregroundColor(Color.black)
-                        .frame(maxWidth: .infinity)
-                }
-                .background(Color.orange)
+                AdditionButton()
             }
             
             Spacer()
