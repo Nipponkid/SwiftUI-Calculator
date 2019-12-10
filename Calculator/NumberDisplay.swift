@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct NumberDisplay: View {
-    private(set) var number: String = "0"
+    let numberString: String
     
     var body: some View {
-        Text(number)
+        Text(numberString)
             .font(.system(size: 60))
             .multilineTextAlignment(.trailing)
             .foregroundColor(Color.white)
@@ -20,10 +20,8 @@ struct NumberDisplay: View {
 }
 
 struct NumberDisplay_Previews: PreviewProvider {
-    @State static private var number = "0"
-    
     static var previews: some View {
-        NumberDisplay(number: "212641682641")
+        NumberDisplay(numberString: "212641682641")
             .background(Color.black)
             .previewLayout(.sizeThatFits)
     }
