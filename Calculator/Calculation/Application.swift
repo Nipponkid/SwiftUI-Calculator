@@ -9,5 +9,9 @@
 import Foundation
 
 class Application {
-    var output = "0"
+    private(set) var output = "0"
+    
+    func receiveFirstInput(_ firstInput: Int) {
+        output = String(firstInput)
+    }
 }
