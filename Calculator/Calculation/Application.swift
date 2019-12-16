@@ -18,4 +18,8 @@ class Application {
     func receiveSecondInput(_ secondInput: Int) {
         output = String(secondInput)
     }
+    
+    func calculateSum() {
+        output = "0"
+    }
 }

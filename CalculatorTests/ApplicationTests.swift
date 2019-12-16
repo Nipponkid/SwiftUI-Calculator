@@ -54,4 +54,11 @@ class ApplicationTests: XCTestCase {
             }
         }
     }
+    
+    func test_calculateSumWithoutReceivingEitherInputResultsInOutputEqualingZero() {
+        if let application = application {
+            application.calculateSum()
+            XCTAssertEqual(application.output, "0")
+        }
+    }
 }
