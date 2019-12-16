@@ -14,4 +14,8 @@ class Application {
     func receiveFirstInput(_ firstInput: Int) {
         output = String(firstInput)
     }
+    
+    func receiveSecondInput(_ secondInput: Int) {
+        output = String(secondInput)
+    }
 }

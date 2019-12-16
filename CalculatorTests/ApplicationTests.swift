@@ -41,4 +41,17 @@ class ApplicationTests: XCTestCase {
             }
         }
     }
+    
+    func test_receiveSecondInputResultsInOutputEqualingIt() {
+        if let application = application {
+            let inputs = [1, Int.max, Int.min, 0, -123456]
+            let expected = ["1", String(Int.max), String(Int.min), "0",
+                            "-123456"]
+            
+            for i in 0..<inputs.count {
+                application.receiveSecondInput(inputs[i])
+                XCTAssertEqual(application.output, expected[i])
+            }
+        }
+    }
 }
