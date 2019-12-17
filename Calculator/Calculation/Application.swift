@@ -11,15 +11,26 @@ import Foundation
 class Application {
     private(set) var output = "0"
     
+    private var firstInput: Int
+    private var secondInput: Int
+    
+    init() {
+        firstInput = 0
+        secondInput = firstInput
+    }
+    
     func receiveFirstInput(_ firstInput: Int) {
+        self.firstInput = firstInput
         output = String(firstInput)
     }
     
     func receiveSecondInput(_ secondInput: Int) {
+        self.secondInput = secondInput
         output = String(secondInput)
     }
     
     func calculateSum() {
-        output = "0"
+        let sum = firstInput + secondInput
+        output = String(sum)
     }
 }
