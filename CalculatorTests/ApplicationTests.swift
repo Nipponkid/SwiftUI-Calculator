@@ -75,4 +75,17 @@ class ApplicationTests: XCTestCase {
             }
         }
     }
+    
+    func test_calculateSumAfterOnlyTheFirstInputIsGivenResultsInOuputEqualingThatInputPlusItself() {
+        if let application = application {
+            let inputs = [10, -3, 0, 100, -742]
+            let expected = ["20", "-6", "0", "200", "-1484"]
+            
+            for i in 0..<inputs.count {
+                application.receiveFirstInput(inputs[i])
+                application.calculateSum()
+                XCTAssertEqual(application.output, expected[i])
+            }
+        }
+    }
 }

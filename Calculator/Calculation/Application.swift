@@ -21,6 +21,7 @@ class Application {
     
     func receiveFirstInput(_ firstInput: Int) {
         self.firstInput = firstInput
+        secondInput = self.firstInput
         output = String(firstInput)
     }
     
