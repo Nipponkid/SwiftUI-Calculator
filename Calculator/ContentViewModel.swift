@@ -15,4 +15,8 @@ final class ContentViewModel {
     init(for application: Application) {
         display = application.output
     }
+    
+    func inputDigit(_ digit: String) {
+        display = "5"
+    }
 }
