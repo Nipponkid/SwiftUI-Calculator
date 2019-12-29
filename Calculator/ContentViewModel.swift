@@ -23,4 +23,8 @@ final class ContentViewModel {
             display += digit
         }
     }
+    
+    func sendFirstInput() {
+        display = "0"
+    }
 }

@@ -41,4 +41,13 @@ class ViewModelTests: XCTestCase {
         viewModel.inputDigit("9")
         XCTAssertEqual(viewModel.display, "59")
     }
+    
+    func test_inputtingDigitsForSecondInputDisplaysThatNumber() {
+        let viewModel = ContentViewModel(for: Application())
+        viewModel.inputDigit("2")
+        viewModel.sendFirstInput()
+        viewModel.inputDigit("0")
+        viewModel.inputDigit("2")
+        XCTAssertEqual(viewModel.display, "2")
+    }
 }
