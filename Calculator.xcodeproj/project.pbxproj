@@ -14,6 +14,8 @@
 		1B00CC0E238A1A85000B4E7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B00CC0D238A1A85000B4E7E /* Preview Assets.xcassets */; };
 		1B00CC11238A1A85000B4E7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B00CC0F238A1A85000B4E7E /* LaunchScreen.storyboard */; };
 		1B6B53A2238F6D2F00CCDEEA /* DigitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B53A1238F6D2F00CCDEEA /* DigitButton.swift */; };
+		1B83A17323B86BEB00F8E8E2 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B83A17223B86BEB00F8E8E2 /* ViewModelTests.swift */; };
+		1B83A17523B86C5600F8E8E2 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B83A17423B86C5600F8E8E2 /* ContentViewModel.swift */; };
 		1BD2B8D7239984FC0055BAC1 /* NumberDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD2B8D6239984FC0055BAC1 /* NumberDisplay.swift */; };
 		1BD344AC239AD51400C3CCC9 /* AdditionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD344AB239AD51400C3CCC9 /* AdditionButton.swift */; };
 		1BD344C923A02E1500C3CCC9 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD344C823A02E1500C3CCC9 /* Application.swift */; };
@@ -42,6 +44,8 @@
 		1B00CC17238A1A85000B4E7E /* CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B00CC1D238A1A86000B4E7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B6B53A1238F6D2F00CCDEEA /* DigitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitButton.swift; sourceTree = "<group>"; };
+		1B83A17223B86BEB00F8E8E2 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
+		1B83A17423B86C5600F8E8E2 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		1BD2B8D6239984FC0055BAC1 /* NumberDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberDisplay.swift; sourceTree = "<group>"; };
 		1BD344AB239AD51400C3CCC9 /* AdditionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionButton.swift; sourceTree = "<group>"; };
 		1BD344C823A02E1500C3CCC9 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 				1B6B53A1238F6D2F00CCDEEA /* DigitButton.swift */,
 				1BD2B8D6239984FC0055BAC1 /* NumberDisplay.swift */,
 				1BD344AB239AD51400C3CCC9 /* AdditionButton.swift */,
+				1B83A17423B86C5600F8E8E2 /* ContentViewModel.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -115,6 +120,7 @@
 			children = (
 				1BD344CA23A02E9500C3CCC9 /* ApplicationTests.swift */,
 				1B00CC1D238A1A86000B4E7E /* Info.plist */,
+				1B83A17223B86BEB00F8E8E2 /* ViewModelTests.swift */,
 			);
 			path = CalculatorTests;
 			sourceTree = "<group>";
@@ -228,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B83A17523B86C5600F8E8E2 /* ContentViewModel.swift in Sources */,
 				1BD344C923A02E1500C3CCC9 /* Application.swift in Sources */,
 				1BD344AC239AD51400C3CCC9 /* AdditionButton.swift in Sources */,
 				1B00CC05238A1A80000B4E7E /* AppDelegate.swift in Sources */,
@@ -242,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B83A17323B86BEB00F8E8E2 /* ViewModelTests.swift in Sources */,
 				1BD344CB23A02E9500C3CCC9 /* ApplicationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
