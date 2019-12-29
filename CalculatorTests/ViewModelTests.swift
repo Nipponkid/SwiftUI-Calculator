@@ -25,10 +25,13 @@ class ViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.display, application.output)
     }
 
-    func test_inputtingASingleDigitDisplaysThatDigit() {
-        let application = Application()
-        let viewModel = ContentViewModel(for: application)
-        viewModel.inputDigit("5")
-        XCTAssertEqual(viewModel.display, "5")
+    func test_inputtingASingleDigitFirstInputDisplaysThatDigit() {
+        let fiveDisplay = ContentViewModel(for: Application())
+        fiveDisplay.inputDigit("5")
+        XCTAssertEqual(fiveDisplay.display, "5")
+        
+        let nineDisplay = ContentViewModel(for: Application())
+        nineDisplay.inputDigit("9")
+        XCTAssertEqual(nineDisplay.display, "9")
     }
 }
