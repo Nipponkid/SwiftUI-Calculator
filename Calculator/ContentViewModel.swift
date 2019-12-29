@@ -17,6 +17,10 @@ final class ContentViewModel {
     }
     
     func inputDigit(_ digit: String) {
-        display = digit
+        if display == "0" {
+            display = digit
+        } else {
+            display += digit
+        }
     }
 }

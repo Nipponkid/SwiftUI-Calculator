@@ -34,4 +34,11 @@ class ViewModelTests: XCTestCase {
         nineDisplay.inputDigit("9")
         XCTAssertEqual(nineDisplay.display, "9")
     }
+    
+    func test_inputtingAMultiDigitFirstInputDisplaysThatNumber() {
+        let viewModel = ContentViewModel(for: Application())
+        viewModel.inputDigit("5")
+        viewModel.inputDigit("9")
+        XCTAssertEqual(viewModel.display, "59")
+    }
 }
