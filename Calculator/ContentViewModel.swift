@@ -8,9 +8,9 @@
 
 import Foundation
 
-final class ContentViewModel {
+final class ContentViewModel: ObservableObject {
     
-    private(set) var display: String
+    @Published private(set) var display: String
     private var application: Application
     
     init(for application: Application) {

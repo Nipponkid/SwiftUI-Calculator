@@ -10,10 +10,12 @@ import SwiftUI
 
 struct DigitButton: View {
     let digit: String
-    @Binding var numberString: String
+    let model: ContentViewModel
     
     var body: some View {
-        Button(action: appendDigitToNumberString) {
+        Button(action: {
+            self.model.inputDigit(self.digit)
+        }) {
             Text(digit)
                 .padding()
                 .foregroundColor(Color.black)
@@ -21,19 +23,11 @@ struct DigitButton: View {
         }
         .background(Color.gray)
     }
-    
-    private func appendDigitToNumberString() {
-        if numberString == "0" {
-            numberString = digit
-        } else {
-            numberString += digit
-        }
-    }
 }
 
-struct NumberButton_Previews: PreviewProvider {
-    @State static var display = "0"
+struct DigitButton_Previews: PreviewProvider {
+    @State private static var model = ContentViewModel(for: Application())
     static var previews: some View {
-        DigitButton(digit: "1", numberString: $display)
+        DigitButton(digit: "1", model: model)
     }
 }
