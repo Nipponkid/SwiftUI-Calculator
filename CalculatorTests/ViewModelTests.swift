@@ -50,4 +50,13 @@ class ViewModelTests: XCTestCase {
         viewModel.inputDigit("2")
         XCTAssertEqual(viewModel.display, "2")
     }
+    
+    func test_pressingAdditionButtonDisplaysSumOfBothInputs() {
+        let viewModel = ContentViewModel(for: Application())
+        viewModel.inputDigit("2")
+        viewModel.sendFirstInput()
+        viewModel.inputDigit("2")
+        viewModel.calculateSum()
+        XCTAssertEqual(viewModel.display, "4")
+    }
 }

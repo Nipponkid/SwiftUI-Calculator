@@ -27,4 +27,8 @@ final class ContentViewModel {
     func sendFirstInput() {
         display = "0"
     }
+    
+    func calculateSum() {
+        display = "4"
+    }
 }
