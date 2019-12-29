@@ -11,11 +11,11 @@ import Foundation
 final class ContentViewModel {
     
     private(set) var display: String
-    private var firstInput: String
+    private var application: Application
     
     init(for application: Application) {
+        self.application = application
         display = application.output
-        firstInput = display
     }
     
     func inputDigit(_ digit: String) {
@@ -27,16 +27,17 @@ final class ContentViewModel {
     }
     
     func sendFirstInput() {
-        firstInput = display
+        if let firstNumber = Int(display) {
+            application.receiveFirstInput(firstNumber)
+        }
         display = "0"
     }
     
     func calculateSum() {
-        if let firstInput = Int(firstInput) {
-            if let secondInput = Int(display) {
-                let sum = firstInput + secondInput
-                display = String(sum)
-            }
+        if let secondNumber = Int(display) {
+            application.receiveSecondInput(secondNumber)
         }
+        application.calculateSum()
+        display = application.output
     }
 }
