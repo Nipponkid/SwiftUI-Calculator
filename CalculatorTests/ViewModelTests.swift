@@ -52,11 +52,19 @@ class ViewModelTests: XCTestCase {
     }
     
     func test_pressingAdditionButtonDisplaysSumOfBothInputs() {
-        let viewModel = ContentViewModel(for: Application())
-        viewModel.inputDigit("2")
-        viewModel.sendFirstInput()
-        viewModel.inputDigit("2")
-        viewModel.calculateSum()
-        XCTAssertEqual(viewModel.display, "4")
+        let fourDisplay = ContentViewModel(for: Application())
+        fourDisplay.inputDigit("2")
+        fourDisplay.sendFirstInput()
+        fourDisplay.inputDigit("2")
+        fourDisplay.calculateSum()
+        XCTAssertEqual(fourDisplay.display, "4")
+        
+        let twentyDisplay = ContentViewModel(for: Application())
+        twentyDisplay.inputDigit("1")
+        twentyDisplay.inputDigit("5")
+        twentyDisplay.sendFirstInput()
+        twentyDisplay.inputDigit("5")
+        twentyDisplay.calculateSum()
+        XCTAssertEqual(twentyDisplay.display, "20")
     }
 }
