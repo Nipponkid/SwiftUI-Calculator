@@ -88,7 +88,7 @@ struct ContentView: View {
                 DigitButton(digit: "1", model: model)
                 DigitButton(digit: "2", model: model)
                 DigitButton(digit: "3", model: model)
-                AdditionButton()
+                AdditionButton(model: model)
             }
             
             Spacer()
@@ -105,7 +105,9 @@ struct ContentView: View {
                 }
                 .background(Color.gray)
                 
-                Button(action: {}) {
+                Button(action: {
+                    self.model.calculateSum()
+                }) {
                     Text("=")
                         .padding()
                         .foregroundColor(Color.black)

@@ -12,9 +12,13 @@ struct AdditionButton: View {
     @State private var isPressed = false
     @State private var backgroundColor = Color.orange
     @State private var foregroundColor = Color.white
+    let model: ContentViewModel
     
     var body: some View {
-        Button(action: swapBackgroundAndForegroundColors) {
+        Button(action: {
+            self.model.sendFirstInput()
+            self.swapBackgroundAndForegroundColors()
+        }) {
             Text("+")
                 .padding()
                 .frame(maxWidth: .infinity)
@@ -31,7 +35,8 @@ struct AdditionButton: View {
 }
 
 struct AdditionButton_Previews: PreviewProvider {
+    @State private static var model = ContentViewModel(for: Application())
     static var previews: some View {
-        AdditionButton().previewLayout(.sizeThatFits)
+        AdditionButton(model: model).previewLayout(.sizeThatFits)
     }
 }
