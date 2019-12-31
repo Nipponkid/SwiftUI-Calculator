@@ -67,4 +67,11 @@ class ViewModelTests: XCTestCase {
         twentyDisplay.calculateSum()
         XCTAssertEqual(twentyDisplay.display, "20")
     }
+    
+    func test_displayForSecondInputDefaultsToFirstInput() {
+        let model = ContentViewModel(for: Application())
+        model.inputDigit("2")
+        model.sendFirstInput()
+        XCTAssertEqual(model.display, "2")
+    }
 }
