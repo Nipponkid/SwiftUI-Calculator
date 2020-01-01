@@ -89,10 +89,16 @@ class ViewModelTests: XCTestCase {
         XCTAssertEqual(model.display, "0")
     }
     
-    func test_resettingAfterFirstNonZeroInputDisplaysZero() {
+    func test_resettingAfterEitherInputDisplaysZero() {
         let model = ContentViewModel(for: Application())
         model.inputDigit("2")
         model.sendFirstInput()
+        model.reset()
+        XCTAssertEqual(model.display, "0")
+        
+        model.inputDigit("2")
+        model.sendFirstInput()
+        model.inputDigit("500")
         model.reset()
         XCTAssertEqual(model.display, "0")
     }
