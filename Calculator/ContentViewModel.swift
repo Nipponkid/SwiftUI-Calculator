@@ -43,4 +43,8 @@ final class ContentViewModel: ObservableObject {
         application.calculateSum()
         display = application.output
     }
+    
+    func reset() {
+        
+    }
 }

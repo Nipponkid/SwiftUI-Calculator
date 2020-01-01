@@ -82,4 +82,10 @@ class ViewModelTests: XCTestCase {
         model.inputDigit("0")
         XCTAssertEqual(model.display, "10")
     }
+    
+    func test_resettingBeforeAnyInputsDisplaysZero() {
+        let model = ContentViewModel(for: Application())
+        model.reset()
+        XCTAssertEqual(model.display, "0")
+    }
 }
