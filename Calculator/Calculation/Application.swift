@@ -34,4 +34,8 @@ class Application {
         let sum = firstInput + secondInput
         output = String(sum)
     }
+    
+    func reset() {
+        
+    }
 }

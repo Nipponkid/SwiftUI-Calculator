@@ -88,4 +88,10 @@ class ApplicationTests: XCTestCase {
             }
         }
     }
+    
+    func test_resettingBeforeEnteringFirstInputOutputsZero() {
+        let application = Application()
+        application.reset()
+        XCTAssertEqual(application.output, "0")
+    }
 }
