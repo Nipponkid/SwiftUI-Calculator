@@ -100,5 +100,10 @@ class ApplicationTests: XCTestCase {
         application.receiveFirstInput(10)
         application.reset()
         XCTAssertEqual(application.output, "0")
+        
+        application.receiveFirstInput(2)
+        application.receiveSecondInput(2)
+        application.reset()
+        XCTAssertEqual(application.output, "0")
     }
 }
