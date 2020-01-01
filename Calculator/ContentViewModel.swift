@@ -45,6 +45,7 @@ final class ContentViewModel: ObservableObject {
     }
     
     func reset() {
-        
+        application.reset()
+        display = application.output
     }
 }
