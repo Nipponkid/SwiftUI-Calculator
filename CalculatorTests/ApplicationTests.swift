@@ -94,4 +94,11 @@ class ApplicationTests: XCTestCase {
         application.reset()
         XCTAssertEqual(application.output, "0")
     }
+    
+    func test_resettingAfterEnteringFirstInputAndBeforeEnteringSecondInputOutputsZero() {
+        let application = Application()
+        application.receiveFirstInput(10)
+        application.reset()
+        XCTAssertEqual(application.output, "0")
+    }
 }

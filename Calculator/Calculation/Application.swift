@@ -36,6 +36,6 @@ class Application {
     }
     
     func reset() {
-        
+        output = "0"
     }
 }
