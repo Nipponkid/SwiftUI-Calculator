@@ -17,7 +17,9 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
             
             HStack {
-                Button(action: {}) {
+                Button(action: {
+                    self.model.reset()
+                }) {
                     Text("AC")
                         .padding()
                         .foregroundColor(Color.black)
