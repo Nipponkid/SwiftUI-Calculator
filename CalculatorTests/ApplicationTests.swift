@@ -106,4 +106,12 @@ class ApplicationTests: XCTestCase {
         application.reset()
         XCTAssertEqual(application.output, "0")
     }
+    
+    func test_calculatingTheDifferenceOfBothInputsOutputsTheirDifference() {
+        let application = Application()
+        application.receiveFirstInput(0)
+        application.receiveSecondInput(1000)
+        application.calculateDifference()
+        XCTAssertEqual(application.output, "-1000")
+    }
 }

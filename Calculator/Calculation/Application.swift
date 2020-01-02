@@ -38,4 +38,9 @@ class Application {
     func reset() {
         output = "0"
     }
+    
+    func calculateDifference() {
+        let difference = firstInput - secondInput
+        output = String(difference)
+    }
 }
