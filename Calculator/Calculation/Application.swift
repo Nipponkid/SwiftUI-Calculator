@@ -44,6 +44,10 @@ class Application {
         output = String(difference)
     }
     
+    func add(_ augend: Int, to addend: Int) -> Int {
+        return addend + augend
+    }
+    
     func subtract(_ minuend: Int, from subtrahend: Int) -> Int {
         return subtrahend - minuend
     }
