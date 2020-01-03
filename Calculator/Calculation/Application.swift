@@ -43,4 +43,8 @@ class Application {
         let difference = firstInput - secondInput
         output = String(difference)
     }
+    
+    func subtract(_ minuend: Int, from subtrahend: Int) -> Int {
+        return subtrahend - minuend
+    }
 }
