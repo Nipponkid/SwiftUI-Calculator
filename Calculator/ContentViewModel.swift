@@ -13,11 +13,13 @@ final class ContentViewModel: ObservableObject {
     @Published private(set) var display: String
     private var application: Application
     private var displayingPreviousInput: Bool
+    private var firstNumber: Int
     
     init(for application: Application) {
         self.application = application
         display = application.output
         displayingPreviousInput = false
+        firstNumber = Int(application.output)!
     }
     
     func inputDigit(_ digit: String) {        
@@ -32,16 +34,15 @@ final class ContentViewModel: ObservableObject {
     func sendFirstInput() {
         if let firstNumber = Int(display) {
             application.receiveFirstInput(firstNumber)
+            self.firstNumber = firstNumber
         }
         displayingPreviousInput = true
     }
     
     func calculateSum() {
-        if let secondNumber = Int(display) {
-            application.receiveSecondInput(secondNumber)
-        }
-        application.calculateSum()
-        display = application.output
+        let secondNumber = Int(display)!
+        let sum = application.add(secondNumber, to: firstNumber)
+        display = String(sum)
     }
     
     func reset() {
