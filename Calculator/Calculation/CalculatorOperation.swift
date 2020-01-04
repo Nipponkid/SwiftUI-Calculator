@@ -9,6 +9,15 @@
 import Foundation
 
 struct CalculatorOperation {
-    let firstInput = 0
-    let secondInput = 0
+    let firstInput: Int
+    let secondInput: Int
+    
+    init() {
+        self.init(withFirstInput: 0)
+    }
+    
+    init(withFirstInput firstInput: Int) {
+        self.firstInput = firstInput
+        secondInput = 0
+    }
 }

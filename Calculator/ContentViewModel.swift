@@ -15,11 +15,14 @@ final class ContentViewModel: ObservableObject {
     private var displayingPreviousInput: Bool
     private var firstNumber: Int
     
+    @Published private var operation: CalculatorOperation
+    
     init(for application: Application) {
         self.application = application
         display = application.output
         displayingPreviousInput = false
         firstNumber = Int(application.output)!
+        operation = CalculatorOperation()
     }
     
     init(withFirstInput firstInput: Int) {
@@ -27,10 +30,12 @@ final class ContentViewModel: ObservableObject {
         displayingPreviousInput = false
         firstNumber = firstInput
         display = String(firstInput)
+        operation = CalculatorOperation(withFirstInput: firstInput)
     }
     
     func receiveDigit(_ digit: String) -> ContentViewModel {
-        let newNumber = firstNumber.appendDigit(Digit(rawValue: digit)!)
+        let newNumber = operation.firstInput.appendDigit(Digit(rawValue: digit)!)
+        operation = CalculatorOperation(withFirstInput: newNumber)
         return ContentViewModel(withFirstInput: newNumber)
     }
     

@@ -24,4 +24,10 @@ final class CalculatorOperationTests: XCTestCase {
         XCTAssertEqual(operation.firstInput, 0)
         XCTAssertEqual(operation.secondInput, 0)
     }
+    
+    func test_aNewOperationGivenAFirstInputHasASecondInputOfZero() {
+        let operation = CalculatorOperation(withFirstInput: 10)
+        XCTAssertEqual(operation.firstInput, 10)
+        XCTAssertEqual(operation.secondInput, 0)
+    }
 }
