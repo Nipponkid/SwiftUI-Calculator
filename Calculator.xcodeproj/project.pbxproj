@@ -21,6 +21,8 @@
 		1B83A18423BFBD3E00F8E8E2 /* Int+DigitInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B83A18323BFBD3E00F8E8E2 /* Int+DigitInput.swift */; };
 		1B83A18623BFCD2F00F8E8E2 /* WhenCalculatingDifferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B83A18523BFCD2F00F8E8E2 /* WhenCalculatingDifferences.swift */; };
 		1B83A18823BFE3A700F8E8E2 /* WhenCalculatingSums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B83A18723BFE3A700F8E8E2 /* WhenCalculatingSums.swift */; };
+		1B83A18C23C04C0100F8E8E2 /* CalculatorOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B83A18B23C04C0100F8E8E2 /* CalculatorOperationTests.swift */; };
+		1B83A18E23C04CBD00F8E8E2 /* CalculatorOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B83A18D23C04CBD00F8E8E2 /* CalculatorOperation.swift */; };
 		1BD2B8D7239984FC0055BAC1 /* NumberDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD2B8D6239984FC0055BAC1 /* NumberDisplay.swift */; };
 		1BD344AC239AD51400C3CCC9 /* AdditionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD344AB239AD51400C3CCC9 /* AdditionButton.swift */; };
 		1BD344C923A02E1500C3CCC9 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD344C823A02E1500C3CCC9 /* Application.swift */; };
@@ -56,6 +58,8 @@
 		1B83A18323BFBD3E00F8E8E2 /* Int+DigitInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+DigitInput.swift"; sourceTree = "<group>"; };
 		1B83A18523BFCD2F00F8E8E2 /* WhenCalculatingDifferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhenCalculatingDifferences.swift; sourceTree = "<group>"; };
 		1B83A18723BFE3A700F8E8E2 /* WhenCalculatingSums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhenCalculatingSums.swift; sourceTree = "<group>"; };
+		1B83A18B23C04C0100F8E8E2 /* CalculatorOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorOperationTests.swift; sourceTree = "<group>"; };
+		1B83A18D23C04CBD00F8E8E2 /* CalculatorOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorOperation.swift; sourceTree = "<group>"; };
 		1BD2B8D6239984FC0055BAC1 /* NumberDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberDisplay.swift; sourceTree = "<group>"; };
 		1BD344AB239AD51400C3CCC9 /* AdditionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionButton.swift; sourceTree = "<group>"; };
 		1BD344C823A02E1500C3CCC9 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				1B83A17F23BEAFA800F8E8E2 /* WhenInputtingDigits.swift */,
 				1B83A18523BFCD2F00F8E8E2 /* WhenCalculatingDifferences.swift */,
 				1B83A18723BFE3A700F8E8E2 /* WhenCalculatingSums.swift */,
+				1B83A18B23C04C0100F8E8E2 /* CalculatorOperationTests.swift */,
 			);
 			path = CalculatorTests;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 				1BD344C823A02E1500C3CCC9 /* Application.swift */,
 				1B83A18123BFBC2E00F8E8E2 /* Digit.swift */,
 				1B83A18323BFBD3E00F8E8E2 /* Int+DigitInput.swift */,
+				1B83A18D23C04CBD00F8E8E2 /* CalculatorOperation.swift */,
 			);
 			path = Calculation;
 			sourceTree = "<group>";
@@ -249,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B83A18E23C04CBD00F8E8E2 /* CalculatorOperation.swift in Sources */,
 				1B83A17523B86C5600F8E8E2 /* ContentViewModel.swift in Sources */,
 				1BD344C923A02E1500C3CCC9 /* Application.swift in Sources */,
 				1BD344AC239AD51400C3CCC9 /* AdditionButton.swift in Sources */,
@@ -271,6 +278,7 @@
 				1B83A18823BFE3A700F8E8E2 /* WhenCalculatingSums.swift in Sources */,
 				1B83A18023BEAFA800F8E8E2 /* WhenInputtingDigits.swift in Sources */,
 				1BD344CB23A02E9500C3CCC9 /* ApplicationTests.swift in Sources */,
+				1B83A18C23C04C0100F8E8E2 /* CalculatorOperationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
