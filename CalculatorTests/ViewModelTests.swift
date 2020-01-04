@@ -102,4 +102,9 @@ class ViewModelTests: XCTestCase {
         model.reset()
         XCTAssertEqual(model.display, "0")
     }
+    
+    func test_aNewContentViewModelCreatedWithAFirstInputDisplaysThatFirstInput() {
+        let model = ContentViewModel(withFirstInput: 2)
+        XCTAssertEqual(model.display, "2")
+    }
 }
