@@ -107,4 +107,10 @@ class ViewModelTests: XCTestCase {
         let model = ContentViewModel(withFirstInput: 2)
         XCTAssertEqual(model.display, "2")
     }
+    
+    func test_inputtingADigitCreatesANewContentViewModelWithThatNewDigitAddedToTheDisplay() {
+        let zeroModel = ContentViewModel(withFirstInput: 0)
+        let fiveModel = zeroModel.receiveDigit("5")
+        XCTAssertEqual(fiveModel.display, "5")
+    }
 }
