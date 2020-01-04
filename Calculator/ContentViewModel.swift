@@ -30,7 +30,8 @@ final class ContentViewModel: ObservableObject {
     }
     
     func receiveDigit(_ digit: String) -> ContentViewModel {
-        return ContentViewModel(withFirstInput: Int(digit)!)
+        let newNumber = firstNumber.appendDigit(Digit(rawValue: digit)!)
+        return ContentViewModel(withFirstInput: newNumber)
     }
     
     func inputDigit(_ digit: String) {        
