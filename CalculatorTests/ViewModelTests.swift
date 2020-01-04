@@ -18,28 +18,28 @@ class ViewModelTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
+    
+    func test_aNewContentViewModelCreatedWithAFirstInputDisplaysThatFirstInput() {
+        let model = ContentViewModel(withFirstInput: 2)
+        XCTAssertEqual(model.display, "2")
+    }
+    
+    func test_digitInputAgainstADisplayOfZeroReplacesDisplayWithThatDigit() {
+        let zeroModel = ContentViewModel(withFirstInput: 0)
+        let fiveModel = zeroModel.receiveDigit("5")
+        XCTAssertEqual(fiveModel.display, "5")
+    }
+    
+    func test_digitInputAgainstADisplayOfNonZeroAddsThatDigitToEnd() {
+        let oneModel = ContentViewModel(withFirstInput: 1)
+        let fifteenModel = oneModel.receiveDigit("5")
+        XCTAssertEqual(fifteenModel.display, "15")
+    }
 
     func test_initialDisplayIsInitialApplicationOutput() {
         let application = Application()
         let viewModel = ContentViewModel(for: application)
         XCTAssertEqual(viewModel.display, application.output)
-    }
-
-    func test_inputtingASingleDigitFirstInputDisplaysThatDigit() {
-        let fiveDisplay = ContentViewModel(for: Application())
-        fiveDisplay.inputDigit("5")
-        XCTAssertEqual(fiveDisplay.display, "5")
-        
-        let nineDisplay = ContentViewModel(for: Application())
-        nineDisplay.inputDigit("9")
-        XCTAssertEqual(nineDisplay.display, "9")
-    }
-    
-    func test_inputtingAMultiDigitFirstInputDisplaysThatNumber() {
-        let viewModel = ContentViewModel(for: Application())
-        viewModel.inputDigit("5")
-        viewModel.inputDigit("9")
-        XCTAssertEqual(viewModel.display, "59")
     }
     
     func test_inputtingDigitsForSecondInputDisplaysThatNumber() {
@@ -101,22 +101,5 @@ class ViewModelTests: XCTestCase {
         model.inputDigit("500")
         model.reset()
         XCTAssertEqual(model.display, "0")
-    }
-    
-    func test_aNewContentViewModelCreatedWithAFirstInputDisplaysThatFirstInput() {
-        let model = ContentViewModel(withFirstInput: 2)
-        XCTAssertEqual(model.display, "2")
-    }
-    
-    func test_digitInputAgainstADisplayOfZeroReplacesDisplayWithThatDigit() {
-        let zeroModel = ContentViewModel(withFirstInput: 0)
-        let fiveModel = zeroModel.receiveDigit("5")
-        XCTAssertEqual(fiveModel.display, "5")
-    }
-    
-    func test_digitInputAgainstADisplayOfNonZeroAddsThatDigitToEnd() {
-        let oneModel = ContentViewModel(withFirstInput: 1)
-        let fifteenModel = oneModel.receiveDigit("5")
-        XCTAssertEqual(fifteenModel.display, "15")
     }
 }
