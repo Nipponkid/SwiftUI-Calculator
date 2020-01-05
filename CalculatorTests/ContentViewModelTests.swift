@@ -54,6 +54,17 @@ class ContentViewModelTests: XCTestCase {
         XCTAssertEqual(model.display, String(previousSecondInput) + "0")
     }
     
+    func test_calculatingSumDisplaysSum() {
+        let app = Application()
+        app.receiveDigit(Digit.two)
+        app.acceptSecondInput()
+        app.receiveDigit(Digit.two)
+        
+        let model = ContentViewModel(for: app)
+        model.performOperation(.addition)
+        XCTAssertEqual(model.display, "4")
+    }
+    
     private static func createApplicationWithFirstInputOfZero() -> Application {
         return Application()
     }
