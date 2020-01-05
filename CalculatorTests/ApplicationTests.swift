@@ -40,7 +40,7 @@ class ApplicationTests: XCTestCase {
         XCTAssertEqual(app.firstInput, 5)
     }
     
-    func test_aFirstInputAceptingApplicationCanBeSwitchedToAcceptingASecondInput() {
+    func test_aFirstInputAcceptingApplicationCanBeSwitchedToAcceptingASecondInput() {
         let app = Application()
         app.acceptSecondInput()
         XCTAssertEqual(app.state, .acceptingSecondInput)
