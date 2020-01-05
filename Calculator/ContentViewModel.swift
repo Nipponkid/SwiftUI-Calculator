@@ -9,19 +9,24 @@
 import Foundation
 
 final class ContentViewModel: ObservableObject {
+    private let app: Application
+    
     // MARK: - Initialization
     
     init(for application: Application) {
-        display = ""
+        app = application
     }
 
     // MARK: - Querying Display
     
-    var display: String
+    var display: String {
+        return String(app.firstInput)
+    }
         
     // MARK: - Entering Digit Strings
     
     func receiveDigitString(_ digitString: String) {
-        display = digitString
+        let digit = Digit(rawValue: digitString)!
+        app.receiveDigit(digit)
     }
 }
