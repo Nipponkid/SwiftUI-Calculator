@@ -33,6 +33,10 @@ final class ContentViewModel: ObservableObject {
         operation = CalculatorOperation(withFirstInput: firstInput)
     }
     
+    func receiveDigitString(_ digitString: String) {
+        display = digitString
+    }
+    
     func receiveDigit(_ digit: String) -> ContentViewModel {
         let newNumber = operation.firstInput.appendDigit(Digit(rawValue: digit)!)
         operation = CalculatorOperation(withFirstInput: newNumber)

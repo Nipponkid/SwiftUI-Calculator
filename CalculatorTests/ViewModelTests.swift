@@ -25,9 +25,9 @@ class ViewModelTests: XCTestCase {
     }
     
     func test_digitInputAgainstADisplayOfZeroReplacesDisplayWithThatDigit() {
-        let zeroModel = ContentViewModel(withFirstInput: 0)
-        let fiveModel = zeroModel.receiveDigit("5")
-        XCTAssertEqual(fiveModel.display, "5")
+        let model = ContentViewModel(for: Application())
+        model.receiveDigitString("5")
+        XCTAssertEqual(model.display, "5")
     }
     
     func test_digitInputAgainstADisplayOfNonZeroAddsThatDigitToEnd() {
