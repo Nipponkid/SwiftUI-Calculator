@@ -20,7 +20,11 @@ final class ContentViewModel: ObservableObject {
     // MARK: - Querying Display
     
     var display: String {
-        return String(app.firstInput)
+        if app.state == .acceptingFirstInput {
+            return String(app.firstInput)
+        } else {
+            return String(app.secondInput)
+        }
     }
         
     // MARK: - Entering Digit Strings
