@@ -40,6 +40,12 @@ class ApplicationTests: XCTestCase {
         XCTAssertEqual(app.firstInput, 5)
     }
     
+    func test_aFirstInputAceptingApplicationCanBeSwitchedToAcceptingASecondInput() {
+        let app = Application()
+        app.acceptSecondInput()
+        XCTAssertEqual(app.state, .acceptingSecondInput)
+    }
+    
     func test_receiveFirstInputResultsInOutputEqualingIt() {
         if let application = application {
             let inputs = [1, Int.max, Int.min, 0, -123456]

@@ -11,9 +11,10 @@ import Foundation
 class Application {
     enum State {
         case acceptingFirstInput
+        case acceptingSecondInput
     }
     
-    var state: State
+    private(set) var state: State
     
     private(set) var output = "0"
     
@@ -28,6 +29,10 @@ class Application {
     
     func receiveDigit(_ digit: Digit) {
         firstInput = firstInput.appendDigit(digit)
+    }
+    
+    func acceptSecondInput() {
+        state = .acceptingSecondInput
     }
     
     func receiveFirstInput(_ firstInput: Int) {
