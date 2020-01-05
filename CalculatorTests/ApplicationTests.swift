@@ -22,12 +22,6 @@ class ApplicationTests: XCTestCase {
         application = nil
         super.tearDown()
     }
-
-    func test_initialApplicationHasOutputOfZero() {
-        if let application = application {
-            XCTAssertEqual(application.output, "0")
-        }
-    }
     
     func test_aNewApplicationWillBeAcceptingItsFirstInput() {
         let app = Application()
@@ -66,64 +60,12 @@ class ApplicationTests: XCTestCase {
         XCTAssertEqual(secondInputAcceptingApp.secondInput, 7)
     }
     
-    func test_calculateSumReturnsTheSumOfBothInputs() {
+    func test_sumIsSumOfBothInputs() {
         let app = Application()
         app.receiveDigit(Digit.two)
         app.acceptSecondInput()
         app.receiveDigit(Digit.two)
         
-        XCTAssertEqual(app.calculateSum(), app.firstInput + app.secondInput)
-    }
-    
-    func test_receiveFirstInputResultsInOutputEqualingIt() {
-        if let application = application {
-            let inputs = [1, Int.max, Int.min, 0, -123456]
-            let expected = ["1", String(Int.max), String(Int.min), "0",
-                            "-123456"]
-            
-            for i in 0..<inputs.count {
-                application.receiveFirstInput(inputs[i])
-                XCTAssertEqual(application.output, expected[i])
-            }
-        }
-    }
-    
-    func test_receiveSecondInputResultsInOutputEqualingIt() {
-        if let application = application {
-            let inputs = [1, Int.max, Int.min, 0, -123456]
-            let expected = ["1", String(Int.max), String(Int.min), "0",
-                            "-123456"]
-            
-            for i in 0..<inputs.count {
-                application.receiveSecondInput(inputs[i])
-                XCTAssertEqual(application.output, expected[i])
-            }
-        }
-    }
-    
-    func test_resettingBeforeEnteringFirstInputOutputsZero() {
-        let application = Application()
-        application.reset()
-        XCTAssertEqual(application.output, "0")
-    }
-    
-    func test_resettingAfterEnteringFirstInputAndBeforeEnteringSecondInputOutputsZero() {
-        let application = Application()
-        application.receiveFirstInput(10)
-        application.reset()
-        XCTAssertEqual(application.output, "0")
-        
-        application.receiveFirstInput(2)
-        application.receiveSecondInput(2)
-        application.reset()
-        XCTAssertEqual(application.output, "0")
-    }
-    
-    func test_calculatingTheDifferenceOfBothInputsOutputsTheirDifference() {
-        let application = Application()
-        application.receiveFirstInput(0)
-        application.receiveSecondInput(1000)
-        application.calculateDifference()
-        XCTAssertEqual(application.output, "-1000")
+        XCTAssertEqual(app.sum, app.firstInput + app.secondInput)
     }
 }

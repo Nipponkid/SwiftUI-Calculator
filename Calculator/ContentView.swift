@@ -9,7 +9,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject private var model = ContentViewModel(for: Application())
+    @ObservedObject private var model: ContentViewModel
+    
+    init(model: ContentViewModel) {
+        self.model = model
+    }
     
     var body: some View {
         VStack {
@@ -108,7 +112,7 @@ struct ContentView: View {
                 .background(Color.gray)
                 
                 Button(action: {
-                    self.model.calculateSum()
+                    
                 }) {
                     Text("=")
                         .padding()
@@ -124,8 +128,10 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    static let app = Application()
+    static let model = ContentViewModel(for: app)
     static var previews: some View {
-        ContentView()
+        ContentView(model: model)
             .previewDevice(PreviewDevice(rawValue: "iPhone 8 Plus"))
     }
 }

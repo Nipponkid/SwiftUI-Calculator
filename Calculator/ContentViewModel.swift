@@ -9,30 +9,13 @@
 import Foundation
 
 final class ContentViewModel: ObservableObject {
-    
-    private(set) var display: String
-    private var application: Application
+    var display: String
     
     init(for application: Application) {
-        self.application = application
-        display = application.output
+        display = ""
     }
     
     func receiveDigitString(_ digitString: String) {
-//        application.receiveDigit(Digit(rawValue: digitString)!)
-//        display = String(application.firstInput)
-    }
-    
-    func sendInput() {
-        if application.state == .acceptingFirstInput {
-            display = String(application.firstInput)
-        } else if application.state == .acceptingSecondInput {
-            display = String(application.secondInput)
-        }
-        application.acceptSecondInput()
-    }
-    
-    func calculateSum() {
-        display = String(application.calculateSum() )
+        
     }
 }

@@ -9,6 +9,28 @@
 import Foundation
 
 class Application {
+    
+    private var firstInputDigits: [Digit] = []
+    private var secondInputDigits: [Digit] = []
+    
+    // MARK: - Initialization
+    
+    init() {
+        state = .acceptingFirstInput
+    }
+    
+    // MARK: - Querying Inputs
+    
+    var firstInput: Int {
+        return Int.fromDigits(firstInputDigits)
+    }
+    
+    var secondInput: Int {
+        return Int.fromDigits(secondInputDigits)
+    }
+    
+    // MARK: - Querying State
+    
     enum State {
         case acceptingFirstInput
         case acceptingSecondInput
@@ -16,56 +38,23 @@ class Application {
     
     private(set) var state: State
     
-    private(set) var output = "0"
+    // MARK: - Calculations
     
-    private(set) var firstInput: Int
-    private(set) var secondInput: Int
-    
-    init() {
-        firstInput = 0
-        secondInput = firstInput
-        state = .acceptingFirstInput
+    var sum: Int {
+        return firstInput + secondInput
     }
+    
+    // MARK: - Entering Digits
     
     func receiveDigit(_ digit: Digit) {
         if state == .acceptingFirstInput {
-            firstInput = firstInput.appendDigit(digit)
+            firstInputDigits.append(digit)
         } else if state == .acceptingSecondInput {
-            secondInput = secondInput.appendDigit(digit)
+            secondInputDigits.append(digit)
         }
     }
     
     func acceptSecondInput() {
         state = .acceptingSecondInput
-    }
-    
-    func receiveFirstInput(_ firstInput: Int) {
-        self.firstInput = firstInput
-        secondInput = self.firstInput
-        output = String(firstInput)
-    }
-    
-    func receiveSecondInput(_ secondInput: Int) {
-        self.secondInput = secondInput
-        output = String(secondInput)
-    }
-    
-    func calculateSum() -> Int {
-        let sum = firstInput + secondInput
-        output = String(sum)
-        return sum
-    }
-    
-    func reset() {
-        output = "0"
-    }
-    
-    func calculateDifference() {
-        let difference = firstInput - secondInput
-        output = String(difference)
-    }
-    
-    func subtract(_ minuend: Int, from subtrahend: Int) -> Int {
-        return subtrahend - minuend
     }
 }
