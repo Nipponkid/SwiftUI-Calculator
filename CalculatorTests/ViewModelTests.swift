@@ -19,27 +19,16 @@ class ViewModelTests: XCTestCase {
         super.tearDown()
     }
     
-    func test_aNewContentViewModelCreatedWithAFirstInputDisplaysThatFirstInput() {
-        let model = ContentViewModel(withFirstInput: 2)
-        XCTAssertEqual(model.display, "2")
+    func test_aNewContentViewModelDisplaysAnApplicationsFirstInput() {
+        let app = Application()
+        let viewModel = ContentViewModel(for: app)
+        XCTAssertEqual(viewModel.display, String(app.firstInput))
     }
     
     func test_digitInputAgainstADisplayOfZeroReplacesDisplayWithThatDigit() {
         let model = ContentViewModel(for: Application())
         model.receiveDigitString("5")
         XCTAssertEqual(model.display, "5")
-    }
-    
-    func test_digitInputAgainstADisplayOfNonZeroAddsThatDigitToEnd() {
-        let oneModel = ContentViewModel(withFirstInput: 1)
-        let fifteenModel = oneModel.receiveDigit("5")
-        XCTAssertEqual(fifteenModel.display, "15")
-    }
-
-    func test_initialDisplayIsInitialApplicationOutput() {
-        let application = Application()
-        let viewModel = ContentViewModel(for: application)
-        XCTAssertEqual(viewModel.display, application.output)
     }
     
     func test_inputtingDigitsForSecondInputDisplaysThatNumber() {
