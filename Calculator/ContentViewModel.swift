@@ -53,9 +53,7 @@ final class ContentViewModel: ObservableObject {
     }
     
     func calculateSum() {
-        let secondNumber = Int(display)!
-        let sum = application.add(secondNumber, to: firstNumber)
-        display = String(sum)
+        display = String(application.calculateSum() )
     }
     
     func reset() {

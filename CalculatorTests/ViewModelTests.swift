@@ -67,22 +67,16 @@ class ViewModelTests: XCTestCase {
         viewModel.inputDigit("2")
         XCTAssertEqual(viewModel.display, "2")
     }
-
-    func test_pressingAdditionButtonDisplaysSumOfBothInputs() {
-        let fourDisplay = ContentViewModel(for: Application())
-        fourDisplay.inputDigit("2")
-        fourDisplay.sendFirstInput()
-        fourDisplay.inputDigit("2")
-        fourDisplay.calculateSum()
-        XCTAssertEqual(fourDisplay.display, "4")
-
-        let twentyDisplay = ContentViewModel(for: Application())
-        twentyDisplay.inputDigit("1")
-        twentyDisplay.inputDigit("5")
-        twentyDisplay.sendFirstInput()
-        twentyDisplay.inputDigit("5")
-        twentyDisplay.calculateSum()
-        XCTAssertEqual(twentyDisplay.display, "20")
+    
+    func test_calculatingSumDisplaysSumOfBothApplicationInputs() {
+        let app = Application()
+        app.receiveDigit(Digit.two)
+        app.acceptSecondInput()
+        app.receiveDigit(Digit.two)
+        
+        let model = ContentViewModel(for: app)
+        model.calculateSum()
+        XCTAssertEqual(model.display, String(app.calculateSum()))
     }
 
     func test_inputtingAMultiDigitSecondInputDisplaysThatNumber() {
