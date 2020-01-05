@@ -10,20 +10,17 @@ import Foundation
 
 final class ContentViewModel: ObservableObject {
     
-    @Published private(set) var display: String
+    private(set) var display: String
     private var application: Application
-    private var displayingPreviousInput: Bool
-    private var firstNumber: Int
     
     init(for application: Application) {
         self.application = application
         display = application.output
-        displayingPreviousInput = false
-        firstNumber = Int(application.output)!
     }
     
     func receiveDigitString(_ digitString: String) {
-        display = digitString
+//        application.receiveDigit(Digit(rawValue: digitString)!)
+//        display = String(application.firstInput)
     }
     
     func sendInput() {
@@ -35,29 +32,7 @@ final class ContentViewModel: ObservableObject {
         application.acceptSecondInput()
     }
     
-    func inputDigit(_ digit: String) {        
-        if display == "0" || displayingPreviousInput {
-            display = digit
-        } else {
-            display += digit
-        }
-        displayingPreviousInput = false
-    }
-    
-    func sendFirstInput() {
-        if let firstNumber = Int(display) {
-            application.receiveFirstInput(firstNumber)
-            self.firstNumber = firstNumber
-        }
-        displayingPreviousInput = true
-    }
-    
     func calculateSum() {
         display = String(application.calculateSum() )
-    }
-    
-    func reset() {
-        application.reset()
-        display = application.output
     }
 }

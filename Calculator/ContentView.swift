@@ -18,7 +18,7 @@ struct ContentView: View {
             
             HStack {
                 Button(action: {
-                    self.model.reset()
+                    
                 }) {
                     Text("AC")
                         .padding()
