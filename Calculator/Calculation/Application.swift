@@ -19,7 +19,7 @@ class Application {
     private(set) var output = "0"
     
     private(set) var firstInput: Int
-    private var secondInput: Int
+    private(set) var secondInput: Int
     
     init() {
         firstInput = 0
@@ -28,7 +28,11 @@ class Application {
     }
     
     func receiveDigit(_ digit: Digit) {
-        firstInput = firstInput.appendDigit(digit)
+        if state == .acceptingFirstInput {
+            firstInput = firstInput.appendDigit(digit)
+        } else if state == .acceptingSecondInput {
+            secondInput = secondInput.appendDigit(digit)
+        }
     }
     
     func acceptSecondInput() {
