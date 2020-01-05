@@ -9,6 +9,12 @@
 import Foundation
 
 class Application {
+    enum State {
+        case acceptingFirstInput
+    }
+    
+    var state: State
+    
     private(set) var output = "0"
     
     private var firstInput: Int
@@ -17,6 +23,7 @@ class Application {
     init() {
         firstInput = 0
         secondInput = firstInput
+        state = .acceptingFirstInput
     }
     
     func receiveFirstInput(_ firstInput: Int) {

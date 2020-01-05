@@ -29,6 +29,11 @@ class ApplicationTests: XCTestCase {
         }
     }
     
+    func test_aNewApplicationWillBeAcceptingItsFirstInput() {
+        let app = Application()
+        XCTAssertEqual(app.state, .acceptingFirstInput)
+    }
+    
     func test_receiveFirstInputResultsInOutputEqualingIt() {
         if let application = application {
             let inputs = [1, Int.max, Int.min, 0, -123456]
