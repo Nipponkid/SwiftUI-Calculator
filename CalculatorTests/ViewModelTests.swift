@@ -31,6 +31,15 @@ class ViewModelTests: XCTestCase {
         XCTAssertEqual(model.display, "5")
     }
     
+    func test_sendingInputToApplicationAcceptingFirstInputDisplaysThatFirstInput() {
+        let app = Application()
+        app.receiveDigit(Digit.two)
+        
+        let model = ContentViewModel(for: app)
+        model.sendInput()
+        XCTAssertEqual(model.display, String(app.firstInput))
+    }
+
     func test_inputtingDigitsForSecondInputDisplaysThatNumber() {
         let viewModel = ContentViewModel(for: Application())
         viewModel.inputDigit("2")
@@ -39,7 +48,7 @@ class ViewModelTests: XCTestCase {
         viewModel.inputDigit("2")
         XCTAssertEqual(viewModel.display, "2")
     }
-    
+
     func test_pressingAdditionButtonDisplaysSumOfBothInputs() {
         let fourDisplay = ContentViewModel(for: Application())
         fourDisplay.inputDigit("2")
@@ -47,7 +56,7 @@ class ViewModelTests: XCTestCase {
         fourDisplay.inputDigit("2")
         fourDisplay.calculateSum()
         XCTAssertEqual(fourDisplay.display, "4")
-        
+
         let twentyDisplay = ContentViewModel(for: Application())
         twentyDisplay.inputDigit("1")
         twentyDisplay.inputDigit("5")
@@ -56,14 +65,14 @@ class ViewModelTests: XCTestCase {
         twentyDisplay.calculateSum()
         XCTAssertEqual(twentyDisplay.display, "20")
     }
-    
+
     func test_displayForSecondInputDefaultsToFirstInput() {
         let model = ContentViewModel(for: Application())
         model.inputDigit("2")
         model.sendFirstInput()
         XCTAssertEqual(model.display, "2")
     }
-    
+
     func test_inputtingAMultiDigitSecondInputDisplaysThatNumber() {
         let model = ContentViewModel(for: Application())
         model.sendFirstInput()
@@ -71,20 +80,20 @@ class ViewModelTests: XCTestCase {
         model.inputDigit("0")
         XCTAssertEqual(model.display, "10")
     }
-    
+
     func test_resettingBeforeAnyInputsDisplaysZero() {
         let model = ContentViewModel(for: Application())
         model.reset()
         XCTAssertEqual(model.display, "0")
     }
-    
+
     func test_resettingAfterEitherInputDisplaysZero() {
         let model = ContentViewModel(for: Application())
         model.inputDigit("2")
         model.sendFirstInput()
         model.reset()
         XCTAssertEqual(model.display, "0")
-        
+
         model.inputDigit("2")
         model.sendFirstInput()
         model.inputDigit("500")

@@ -26,6 +26,10 @@ final class ContentViewModel: ObservableObject {
         display = digitString
     }
     
+    func sendInput() {
+        display = String(application.firstInput)
+    }
+    
     func inputDigit(_ digit: String) {        
         if display == "0" || displayingPreviousInput {
             display = digit
