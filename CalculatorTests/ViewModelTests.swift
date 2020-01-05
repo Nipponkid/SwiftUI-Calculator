@@ -49,6 +49,14 @@ class ViewModelTests: XCTestCase {
         model.sendInput()
         XCTAssertEqual(model.display, String(app.secondInput))
     }
+    
+    func test_sendingInputToApplicationAcceptingFirstInputChangesToAcceptingSecondInput() {
+        let app = Application()
+        
+        let model = ContentViewModel(for: app)
+        model.sendInput()
+        XCTAssertEqual(app.state, .acceptingSecondInput)
+    }
 
     func test_inputtingDigitsForSecondInputDisplaysThatNumber() {
         let viewModel = ContentViewModel(for: Application())
