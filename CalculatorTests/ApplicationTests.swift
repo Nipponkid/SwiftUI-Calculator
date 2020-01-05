@@ -34,6 +34,12 @@ class ApplicationTests: XCTestCase {
         XCTAssertEqual(app.state, .acceptingFirstInput)
     }
     
+    func test_aFirstInputAcceptingApplicationWillHaveDigitsAppendedToItsFirstInput() {
+        let app = Application()
+        app.receiveDigit(Digit.five)
+        XCTAssertEqual(app.firstInput, 5)
+    }
+    
     func test_receiveFirstInputResultsInOutputEqualingIt() {
         if let application = application {
             let inputs = [1, Int.max, Int.min, 0, -123456]

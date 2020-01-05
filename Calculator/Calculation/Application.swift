@@ -17,13 +17,17 @@ class Application {
     
     private(set) var output = "0"
     
-    private var firstInput: Int
+    private(set) var firstInput: Int
     private var secondInput: Int
     
     init() {
         firstInput = 0
         secondInput = firstInput
         state = .acceptingFirstInput
+    }
+    
+    func receiveDigit(_ digit: Digit) {
+        firstInput = firstInput.appendDigit(digit)
     }
     
     func receiveFirstInput(_ firstInput: Int) {
