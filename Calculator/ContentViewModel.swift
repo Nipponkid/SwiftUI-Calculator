@@ -27,7 +27,11 @@ final class ContentViewModel: ObservableObject {
     }
     
     func sendInput() {
-        display = String(application.firstInput)
+        if application.state == .acceptingFirstInput {
+            display = String(application.firstInput)
+        } else if application.state == .acceptingSecondInput {
+            display = String(application.secondInput)
+        }
     }
     
     func inputDigit(_ digit: String) {        
