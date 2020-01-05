@@ -66,6 +66,15 @@ class ApplicationTests: XCTestCase {
         XCTAssertEqual(secondInputAcceptingApp.secondInput, 7)
     }
     
+    func test_calculateSumReturnsTheSumOfBothInputs() {
+        let app = Application()
+        app.receiveDigit(Digit.two)
+        app.acceptSecondInput()
+        app.receiveDigit(Digit.two)
+        
+        XCTAssertEqual(app.calculateSum(), app.firstInput + app.secondInput)
+    }
+    
     func test_receiveFirstInputResultsInOutputEqualingIt() {
         if let application = application {
             let inputs = [1, Int.max, Int.min, 0, -123456]
@@ -87,40 +96,6 @@ class ApplicationTests: XCTestCase {
             
             for i in 0..<inputs.count {
                 application.receiveSecondInput(inputs[i])
-                XCTAssertEqual(application.output, expected[i])
-            }
-        }
-    }
-    
-    func test_calculateSumWithoutReceivingEitherInputResultsInOutputEqualingZero() {
-        if let application = application {
-            application.calculateSum()
-            XCTAssertEqual(application.output, "0")
-        }
-    }
-    
-    func test_calculateSumResultsInOutputEqualingTheSumOfBothInputs() {
-        if let application = application {
-            let inputs = [(2, 2), (-5, 543), (-99999, 10000), (-5, -25), (0, 0)]
-            let expected = ["4", "538", "-89999", "-30", "0"]
-            
-            for i in 0..<inputs.count {
-                application.receiveFirstInput(inputs[i].0)
-                application.receiveSecondInput(inputs[i].1)
-                application.calculateSum()
-                XCTAssertEqual(application.output, expected[i])
-            }
-        }
-    }
-    
-    func test_calculateSumAfterOnlyTheFirstInputIsGivenResultsInOuputEqualingThatInputPlusItself() {
-        if let application = application {
-            let inputs = [10, -3, 0, 100, -742]
-            let expected = ["20", "-6", "0", "200", "-1484"]
-            
-            for i in 0..<inputs.count {
-                application.receiveFirstInput(inputs[i])
-                application.calculateSum()
                 XCTAssertEqual(application.output, expected[i])
             }
         }

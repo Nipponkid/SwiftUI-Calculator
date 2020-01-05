@@ -50,9 +50,10 @@ class Application {
         output = String(secondInput)
     }
     
-    func calculateSum() {
+    func calculateSum() -> Int {
         let sum = firstInput + secondInput
         output = String(sum)
+        return sum
     }
     
     func reset() {
