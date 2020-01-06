@@ -15,7 +15,7 @@ final class ContentViewModel: ObservableObject {
     
     init(for application: Application) {
         app = application
-        state = .acceptingInput
+        state = .acceptingFirstInput
         display = "0"
     }
 
@@ -28,7 +28,7 @@ final class ContentViewModel: ObservableObject {
     // MARK: - Querying State
     
     enum State {
-        case acceptingInput
+        case acceptingFirstInput
         case displayingResult
     }
     
@@ -66,7 +66,7 @@ final class ContentViewModel: ObservableObject {
     // This method only exists because display can't be a computed property. If
     // it could be, this logic would be directly instead the display property
     private func updateDisplay() {
-        if state == .acceptingInput {
+        if state == .acceptingFirstInput {
             display = determineCorrectInputToDisplay()
         } else {
             display = String(app.sum)

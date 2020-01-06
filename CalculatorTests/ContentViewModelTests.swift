@@ -19,6 +19,12 @@ class ContentViewModelTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
+    
+    func test_aNewContentViewModelIsInAcceptingFirstInputState() {
+        let app = Application()
+        let model = ContentViewModel(for: app)
+        XCTAssertEqual(model.state, .acceptingFirstInput)
+    }
 
     func test_digitInputAgainstFirstInputOfZeroDisplaysThatDigit() {
         let app = ContentViewModelTests.createApplicationWithFirstInputOfZero()
