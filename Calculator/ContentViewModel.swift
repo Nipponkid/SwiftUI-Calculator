@@ -16,17 +16,14 @@ final class ContentViewModel: ObservableObject {
     init(for application: Application) {
         app = application
         state = .acceptingInput
+        display = "0"
     }
 
     // MARK: - Querying Display
     
-    var display: String {
-        if state == .acceptingInput {
-            return determineCorrectInputToDisplay()
-        } else {
-            return String(app.sum)
-        }
-    }
+    // display is a stored instead of computed property because the Published
+    // property wrapper can only be used on stored properties
+    @Published private(set) var display: String
     
     // MARK: - Querying State
     
@@ -42,6 +39,8 @@ final class ContentViewModel: ObservableObject {
     func receiveDigitString(_ digitString: String) {
         let digit = Digit(rawValue: digitString)!
         app.receiveDigit(digit)
+        
+        updateDisplay()
     }
     
     // MARK: - Performing Operations
@@ -52,6 +51,8 @@ final class ContentViewModel: ObservableObject {
     
     func performOperation(_ operation: Operation) {
         state = .displayingResult
+        
+        updateDisplay()
     }
     
     private func determineCorrectInputToDisplay() -> String {
@@ -59,6 +60,16 @@ final class ContentViewModel: ObservableObject {
             return String(app.firstInput)
         } else {
             return String(app.secondInput)
+        }
+    }
+    
+    // This method only exists because display can't be a computed property. If
+    // it could be, this logic would be directly instead the display property
+    private func updateDisplay() {
+        if state == .acceptingInput {
+            display = determineCorrectInputToDisplay()
+        } else {
+            display = String(app.sum)
         }
     }
 }
