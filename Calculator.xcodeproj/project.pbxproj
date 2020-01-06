@@ -97,17 +97,14 @@
 		1B00CC03238A1A80000B4E7E /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				1B6850F323C2919D007835FB /* Views */,
 				1BD344C723A02DFE00C3CCC9 /* Calculation */,
 				1B00CC04238A1A80000B4E7E /* AppDelegate.swift */,
 				1B00CC06238A1A80000B4E7E /* SceneDelegate.swift */,
-				1B00CC08238A1A80000B4E7E /* ContentView.swift */,
 				1B00CC0A238A1A85000B4E7E /* Assets.xcassets */,
 				1B00CC0F238A1A85000B4E7E /* LaunchScreen.storyboard */,
 				1B00CC12238A1A85000B4E7E /* Info.plist */,
 				1B00CC0C238A1A85000B4E7E /* Preview Content */,
-				1B6B53A1238F6D2F00CCDEEA /* DigitButton.swift */,
-				1BD2B8D6239984FC0055BAC1 /* NumberDisplay.swift */,
-				1BD344AB239AD51400C3CCC9 /* AdditionButton.swift */,
 				1B83A17423B86C5600F8E8E2 /* ContentViewModel.swift */,
 			);
 			path = Calculator;
@@ -130,6 +127,17 @@
 				1B83A19123C279C800F8E8E2 /* ContentViewModelTests.swift */,
 			);
 			path = CalculatorTests;
+			sourceTree = "<group>";
+		};
+		1B6850F323C2919D007835FB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1BD344AB239AD51400C3CCC9 /* AdditionButton.swift */,
+				1B00CC08238A1A80000B4E7E /* ContentView.swift */,
+				1B6B53A1238F6D2F00CCDEEA /* DigitButton.swift */,
+				1BD2B8D6239984FC0055BAC1 /* NumberDisplay.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		1BD344C723A02DFE00C3CCC9 /* Calculation */ = {

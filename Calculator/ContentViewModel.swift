@@ -11,29 +11,31 @@ import Foundation
 final class ContentViewModel: ObservableObject {
     private let app: Application
     
-    private enum State {
-        case acceptingInputs
-        case displayingResult
-    }
-
-    private var operation: Operation
-    
     // MARK: - Initialization
     
     init(for application: Application) {
         app = application
-        operation = .acceptInput
+        state = .acceptingInput
     }
 
     // MARK: - Querying Display
     
     var display: String {
-        if operation == .acceptInput {
+        if state == .acceptingInput {
             return determineCorrectInputToDisplay()
         } else {
             return String(app.sum)
         }
     }
+    
+    // MARK: - Querying State
+    
+    enum State {
+        case acceptingInput
+        case displayingResult
+    }
+    
+    private(set) var state: State
         
     // MARK: - Entering Digit Strings
     
@@ -45,12 +47,11 @@ final class ContentViewModel: ObservableObject {
     // MARK: - Performing Operations
     
     enum Operation {
-        case acceptInput
         case addition
     }
     
     func performOperation(_ operation: Operation) {
-        self.operation = operation
+        state = .displayingResult
     }
     
     private func determineCorrectInputToDisplay() -> String {
