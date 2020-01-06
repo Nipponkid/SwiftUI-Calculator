@@ -65,7 +65,7 @@ class ContentViewModelTests: XCTestCase {
         XCTAssertEqual(model.display, "4")
     }
     
-    func test_contentViewModelIsDisplayingResultsAfterAdditionIsPressed() {
+    func test_contentViewModelIsInDisplayingResultStateAfterAddition() {
         let app = Application()
         let model = ContentViewModel(for: app)
         model.performOperation(.addition)
