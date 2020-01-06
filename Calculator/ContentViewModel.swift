@@ -29,6 +29,7 @@ final class ContentViewModel: ObservableObject {
     
     enum State {
         case acceptingFirstInput
+        case acceptingSecondInput
         case displayingResult
     }
     
@@ -53,6 +54,10 @@ final class ContentViewModel: ObservableObject {
         state = .displayingResult
         
         updateDisplay()
+    }
+    
+    func specifyOperation(_ operation: Operation) {
+        state = .acceptingSecondInput
     }
     
     private func determineCorrectInputToDisplay() -> String {
