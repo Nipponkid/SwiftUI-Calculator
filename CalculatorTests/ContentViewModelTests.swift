@@ -110,7 +110,7 @@ final class ContentViewModelTests: XCTestCase {
         XCTAssertEqual(model.display, "90")
     }
     
-    func test_isInAcceptingFirstInputStateAfterResettingWhileInOperationSpecifiedState() {
+    func test_isInAcceptingFirstInputStateAfterResetting() {
         let app = Application()
         let model = ContentViewModel(for: app)
         
@@ -121,7 +121,7 @@ final class ContentViewModelTests: XCTestCase {
         XCTAssertEqual(model.state, .acceptingFirstInput)
     }
     
-    func test_displayingZeroAfterResettingAfterFirstInputGiven() {
+    func test_displayingZeroAfterResetting() {
         let app = Application()
         let model = ContentViewModel(for: app)
         

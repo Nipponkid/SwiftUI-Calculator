@@ -68,4 +68,16 @@ class ApplicationTests: XCTestCase {
         
         XCTAssertEqual(app.sum, app.firstInput + app.secondInput)
     }
+    
+    func test_differenceIsDifferenceOfBothInputs() {
+        let app = Application()
+        app.receiveDigit(Digit.zero)
+        app.receiveDigit(Digit.one)
+        app.receiveDigit(Digit.zero)
+        app.receiveDigit(Digit.zero)
+        app.acceptSecondInput()
+        app.receiveDigit(Digit.five)
+        app.receiveDigit(Digit.five)
+        XCTAssertEqual(app.difference, 45)
+    }
 }
