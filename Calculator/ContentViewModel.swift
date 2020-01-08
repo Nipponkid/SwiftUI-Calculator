@@ -67,6 +67,7 @@ final class ContentViewModel: ObservableObject {
                 app.receiveDigit(digit)
             }
         }
+        state = .displayingResult
     }
     
     private func determineCorrectInputToDisplay() -> String {
