@@ -90,4 +90,15 @@ class ApplicationTests: XCTestCase {
         
         XCTAssertEqual(app.product, 14)
     }
+    
+    func test_quotientOfDivisionWithNonZeroDivisorIsQuotientOfBothInputs() {
+        let app = Application()
+        
+        app.receiveDigit(Digit.one)
+        app.receiveDigit(Digit.zero)
+        app.acceptSecondInput()
+        app.receiveDigit(Digit.five)
+        
+        XCTAssertEqual(app.quotient, 2)
+    }
 }
