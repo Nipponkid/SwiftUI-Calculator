@@ -102,7 +102,7 @@ final class ContentViewModel: ObservableObject {
         } else if state == .displayingSecondInput {
             return String(app.secondInput)
         } else if state == .displayingError {
-            return ""
+            return "Error"
         } else if operation == .addition {
             return String(app.sum)
         } else if operation == .subtraction {
