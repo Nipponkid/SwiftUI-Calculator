@@ -67,15 +67,19 @@ struct ContentView: View {
                 DigitButton(digit: "8", model: model)
                 DigitButton(digit: "9", model: model)
                 
-                Button(action: {
-                    self.model.specifyOperation(.multiplication)
-                }) {
-                    Text("x")
-                        .padding()
-                        .foregroundColor(Color.black)
-                        .frame(maxWidth: .infinity)
+                if model.state == .operationSpecified && model.operation == .multiplication {
+                    MultiplicationButton(
+                        model: model,
+                        backgroundColor: .white,
+                        foregroundColor: .orange
+                    )
+                } else {
+                    MultiplicationButton(
+                        model: model,
+                        backgroundColor: .orange,
+                        foregroundColor: .white
+                    )
                 }
-                .background(Color.orange)
             }
             
             Spacer()
