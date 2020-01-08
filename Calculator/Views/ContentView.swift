@@ -11,8 +11,6 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject private var model: ContentViewModel
     
-    @State private var additionButtonIsPressed = false
-    
     init(model: ContentViewModel) {
         self.model = model
     }
