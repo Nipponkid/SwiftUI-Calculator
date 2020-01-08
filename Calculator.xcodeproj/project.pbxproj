@@ -17,7 +17,7 @@
 		1B83A17523B86C5600F8E8E2 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B83A17423B86C5600F8E8E2 /* ContentViewModel.swift */; };
 		1B83A18023BEAFA800F8E8E2 /* WhenInputtingDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B83A17F23BEAFA800F8E8E2 /* WhenInputtingDigits.swift */; };
 		1B83A18223BFBC2E00F8E8E2 /* Digit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B83A18123BFBC2E00F8E8E2 /* Digit.swift */; };
-		1B83A18423BFBD3E00F8E8E2 /* Int+DigitInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B83A18323BFBD3E00F8E8E2 /* Int+DigitInput.swift */; };
+		1B83A18423BFBD3E00F8E8E2 /* Int+Digit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B83A18323BFBD3E00F8E8E2 /* Int+Digit.swift */; };
 		1B83A19223C279C800F8E8E2 /* ContentViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B83A19123C279C800F8E8E2 /* ContentViewModelTests.swift */; };
 		1BD2B8D7239984FC0055BAC1 /* NumberDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD2B8D6239984FC0055BAC1 /* NumberDisplay.swift */; };
 		1BD344AC239AD51400C3CCC9 /* AdditionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD344AB239AD51400C3CCC9 /* AdditionButton.swift */; };
@@ -50,7 +50,7 @@
 		1B83A17423B86C5600F8E8E2 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		1B83A17F23BEAFA800F8E8E2 /* WhenInputtingDigits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhenInputtingDigits.swift; sourceTree = "<group>"; };
 		1B83A18123BFBC2E00F8E8E2 /* Digit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digit.swift; sourceTree = "<group>"; };
-		1B83A18323BFBD3E00F8E8E2 /* Int+DigitInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+DigitInput.swift"; sourceTree = "<group>"; };
+		1B83A18323BFBD3E00F8E8E2 /* Int+Digit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Digit.swift"; sourceTree = "<group>"; };
 		1B83A19123C279C800F8E8E2 /* ContentViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModelTests.swift; sourceTree = "<group>"; };
 		1BD2B8D6239984FC0055BAC1 /* NumberDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberDisplay.swift; sourceTree = "<group>"; };
 		1BD344AB239AD51400C3CCC9 /* AdditionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionButton.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 			children = (
 				1BD344C823A02E1500C3CCC9 /* Application.swift */,
 				1B83A18123BFBC2E00F8E8E2 /* Digit.swift */,
-				1B83A18323BFBD3E00F8E8E2 /* Int+DigitInput.swift */,
+				1B83A18323BFBD3E00F8E8E2 /* Int+Digit.swift */,
 			);
 			path = Calculation;
 			sourceTree = "<group>";
@@ -260,7 +260,7 @@
 				1B00CC09238A1A80000B4E7E /* ContentView.swift in Sources */,
 				1BD2B8D7239984FC0055BAC1 /* NumberDisplay.swift in Sources */,
 				1B6B53A2238F6D2F00CCDEEA /* DigitButton.swift in Sources */,
-				1B83A18423BFBD3E00F8E8E2 /* Int+DigitInput.swift in Sources */,
+				1B83A18423BFBD3E00F8E8E2 /* Int+Digit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

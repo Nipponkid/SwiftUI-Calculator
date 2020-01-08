@@ -20,4 +20,12 @@ extension Int {
         }
         return number
     }
+    
+    var digits: [Digit] {
+        var digits: [Digit] = []
+        for digitCharacter in String(self) {
+            digits.append(Digit(rawValue: String(digitCharacter))!)
+        }
+        return digits
+    }
 }

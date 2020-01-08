@@ -70,8 +70,8 @@ final class ContentViewModel: ObservableObject {
     
     func performOperation() {
         if state == .operationSpecified {
-            for digitString in String(app.firstInput) {
-                let digit = Digit(rawValue: String(digitString))!
+            let digits = app.firstInput.digits
+            for digit in digits {
                 app.receiveDigit(digit)
             }
         }
