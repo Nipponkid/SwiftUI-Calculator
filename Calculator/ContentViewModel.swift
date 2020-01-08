@@ -59,6 +59,7 @@ final class ContentViewModel: ObservableObject {
         case addition
         case subtraction
         case multiplication
+        case division
     }
     
     private var operation: Operation
@@ -98,8 +99,10 @@ final class ContentViewModel: ObservableObject {
             return String(app.sum)
         } else if operation == .subtraction {
             return String(app.difference)
-        } else {
+        } else if operation == .multiplication {
             return String(app.product)
+        } else {
+            return String(app.quotient)
         }
     }
 }

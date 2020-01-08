@@ -166,6 +166,19 @@ final class ContentViewModelTests: XCTestCase {
         XCTAssertEqual(model.display, "99")
     }
     
+    func test_displaysQuotientIfSecondInputIsNotZero() {
+        let app = Application()
+        let model = ContentViewModel(for: app)
+        
+        model.receiveDigitString("3")
+        model.receiveDigitString("0")
+        model.specifyOperation(.division)
+        model.receiveDigitString("5")
+        model.performOperation()
+        
+        XCTAssertEqual(model.display, "6")
+    }
+    
     private static func createApplicationWithFirstInputOfZero() -> Application {
         return Application()
     }

@@ -47,7 +47,9 @@ struct ContentView: View {
                 }
                 .background(Color.white)
                 
-                Button(action: {}) {
+                Button(action: {
+                    self.model.specifyOperation(.division)
+                }) {
                     Text("÷")
                         .padding()
                         .foregroundColor(Color.black)
