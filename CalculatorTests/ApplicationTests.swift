@@ -80,4 +80,14 @@ class ApplicationTests: XCTestCase {
         app.receiveDigit(Digit.five)
         XCTAssertEqual(app.difference, 45)
     }
+    
+    func test_productIsProductOfBothInputs() {
+        let app = Application()
+        
+        app.receiveDigit(Digit.two)
+        app.acceptSecondInput()
+        app.receiveDigit(Digit.seven)
+        
+        XCTAssertEqual(app.product, 14)
+    }
 }

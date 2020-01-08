@@ -48,6 +48,10 @@ class Application {
         return firstInput - secondInput
     }
     
+    var product: Int {
+        return firstInput * secondInput
+    }
+    
     // MARK: - Entering Digits
     
     func receiveDigit(_ digit: Digit) {
