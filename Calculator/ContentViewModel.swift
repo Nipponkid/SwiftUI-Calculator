@@ -9,7 +9,7 @@
 import Foundation
 
 final class ContentViewModel: ObservableObject {
-    private let app: Application
+    private var app: Application
     
     // MARK: - Initialization
     
@@ -76,6 +76,12 @@ final class ContentViewModel: ObservableObject {
         }
         state = .displayingResult
         
+        display = determineWhatToDisplay()
+    }
+    
+    func reset() {
+        app = Application()
+        state = .acceptingFirstInput
         display = determineWhatToDisplay()
     }
     
