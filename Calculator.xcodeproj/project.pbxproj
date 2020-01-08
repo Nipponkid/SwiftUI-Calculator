@@ -26,6 +26,7 @@
 		1BEAE1BE23C62CE0006FAFEF /* SubtractionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEAE1BD23C62CE0006FAFEF /* SubtractionButton.swift */; };
 		1BEAE1C023C62DC9006FAFEF /* MultiplicationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEAE1BF23C62DC9006FAFEF /* MultiplicationButton.swift */; };
 		1BEAE1C223C62EA4006FAFEF /* DivisionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEAE1C123C62EA4006FAFEF /* DivisionButton.swift */; };
+		1BEAE1C423C63746006FAFEF /* DigitButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEAE1C323C63746006FAFEF /* DigitButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		1BEAE1BD23C62CE0006FAFEF /* SubtractionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractionButton.swift; sourceTree = "<group>"; };
 		1BEAE1BF23C62DC9006FAFEF /* MultiplicationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationButton.swift; sourceTree = "<group>"; };
 		1BEAE1C123C62EA4006FAFEF /* DivisionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionButton.swift; sourceTree = "<group>"; };
+		1BEAE1C323C63746006FAFEF /* DigitButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				1BD2B8D6239984FC0055BAC1 /* NumberDisplay.swift */,
 				1BEAE1BD23C62CE0006FAFEF /* SubtractionButton.swift */,
 				1BEAE1BF23C62DC9006FAFEF /* MultiplicationButton.swift */,
+				1BEAE1C323C63746006FAFEF /* DigitButtonStyle.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				1B83A17523B86C5600F8E8E2 /* ContentViewModel.swift in Sources */,
 				1BD344C923A02E1500C3CCC9 /* Application.swift in Sources */,
 				1BD344AC239AD51400C3CCC9 /* AdditionButton.swift in Sources */,
+				1BEAE1C423C63746006FAFEF /* DigitButtonStyle.swift in Sources */,
 				1BEAE1C023C62DC9006FAFEF /* MultiplicationButton.swift in Sources */,
 				1B00CC05238A1A80000B4E7E /* AppDelegate.swift in Sources */,
 				1B00CC07238A1A80000B4E7E /* SceneDelegate.swift in Sources */,

@@ -18,10 +18,10 @@ struct DigitButton: View {
         }) {
             Text(digit)
                 .padding()
-                .foregroundColor(Color.black)
+                .foregroundColor(Color.white)
                 .frame(maxWidth: .infinity)
         }
-        .background(Color.gray)
+        .buttonStyle(DigitButtonStyle())
     }
 }
 
