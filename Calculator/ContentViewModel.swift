@@ -55,15 +55,18 @@ final class ContentViewModel: ObservableObject {
         case addition
     }
     
-    func performOperation(_ operation: Operation) {
-        state = .displayingResult
-        
-        updateDisplay()
-    }
-    
     func specifyOperation(_ operation: Operation) {
         state = .operationSpecified
         app.acceptSecondInput()
+    }
+    
+    func performOperation() {
+        if state == .operationSpecified {
+            for digitString in String(app.firstInput) {
+                let digit = Digit(rawValue: String(digitString))!
+                app.receiveDigit(digit)
+            }
+        }
     }
     
     private func determineCorrectInputToDisplay() -> String {
