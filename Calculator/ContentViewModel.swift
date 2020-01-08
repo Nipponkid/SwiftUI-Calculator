@@ -63,7 +63,7 @@ final class ContentViewModel: ObservableObject {
         case division
     }
     
-    private var operation: Operation
+    private(set) var operation: Operation
     
     func specifyOperation(_ operation: Operation) {
         state = .operationSpecified

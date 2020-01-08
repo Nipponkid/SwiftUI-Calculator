@@ -9,15 +9,13 @@
 import SwiftUI
 
 struct AdditionButton: View {
-    @State private var isPressed = false
-    @State private var backgroundColor = Color.orange
-    @State private var foregroundColor = Color.white
     let model: ContentViewModel
+    let backgroundColor: Color
+    let foregroundColor: Color
     
     var body: some View {
         Button(action: {
             self.model.specifyOperation(.addition)
-            self.swapBackgroundAndForegroundColors()
         }) {
             Text("+")
                 .padding()
@@ -26,17 +24,15 @@ struct AdditionButton: View {
         .background(backgroundColor)
         .foregroundColor(foregroundColor)
     }
-    
-    private func swapBackgroundAndForegroundColors() {
-        let temp = backgroundColor
-        backgroundColor = foregroundColor
-        foregroundColor = temp
-    }
 }
 
 struct AdditionButton_Previews: PreviewProvider {
     @State private static var model = ContentViewModel(for: Application())
     static var previews: some View {
-        AdditionButton(model: model).previewLayout(.sizeThatFits)
+        AdditionButton(
+            model: model,
+            backgroundColor: .orange,
+            foregroundColor: .white
+        ).previewLayout(.sizeThatFits)
     }
 }

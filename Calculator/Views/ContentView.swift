@@ -11,6 +11,8 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject private var model: ContentViewModel
     
+    @State private var additionButtonIsPressed = false
+    
     init(model: ContentViewModel) {
         self.model = model
     }
@@ -100,7 +102,20 @@ struct ContentView: View {
                 DigitButton(digit: "1", model: model)
                 DigitButton(digit: "2", model: model)
                 DigitButton(digit: "3", model: model)
-                AdditionButton(model: model)
+                
+                if model.state == .operationSpecified && model.operation == .addition {
+                    AdditionButton(
+                        model: model,
+                        backgroundColor: Color.white,
+                        foregroundColor: Color.orange
+                    )
+                } else {
+                    AdditionButton(
+                        model: model,
+                        backgroundColor: Color.orange,
+                        foregroundColor: Color.white
+                    )
+                }
             }
             
             Spacer()
