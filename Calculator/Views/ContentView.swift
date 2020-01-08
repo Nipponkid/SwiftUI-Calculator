@@ -85,15 +85,19 @@ struct ContentView: View {
                 DigitButton(digit: "5", model: model)
                 DigitButton(digit: "6", model: model)
                 
-                Button(action: {
-                    self.model.specifyOperation(.subtraction)
-                }) {
-                    Text("-")
-                        .padding()
-                        .foregroundColor(Color.black)
-                        .frame(maxWidth: .infinity)
+                if model.state == .operationSpecified && model.operation == .subtraction {
+                    SubtractionButton(
+                        model: model,
+                        backgroundColor: .white,
+                        foregroundColor: .orange
+                    )
+                } else {
+                    SubtractionButton(
+                        model: model,
+                        backgroundColor: .orange,
+                        foregroundColor: .white
+                    )
                 }
-                .background(Color.orange)
             }
             
             Spacer()
@@ -106,14 +110,14 @@ struct ContentView: View {
                 if model.state == .operationSpecified && model.operation == .addition {
                     AdditionButton(
                         model: model,
-                        backgroundColor: Color.white,
-                        foregroundColor: Color.orange
+                        backgroundColor: .white,
+                        foregroundColor: .orange
                     )
                 } else {
                     AdditionButton(
                         model: model,
-                        backgroundColor: Color.orange,
-                        foregroundColor: Color.white
+                        backgroundColor: .orange,
+                        foregroundColor: .white
                     )
                 }
             }
