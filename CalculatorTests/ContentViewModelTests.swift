@@ -130,6 +130,20 @@ final class ContentViewModelTests: XCTestCase {
         XCTAssertEqual(model.display, "0")
     }
     
+    func test_displaysDifference() {
+        let app = Application()
+        let model = ContentViewModel(for: app)
+        
+        model.receiveDigitString("6")
+        model.receiveDigitString("2")
+        model.specifyOperation(.subtraction)
+        model.receiveDigitString("3")
+        model.receiveDigitString("0")
+        model.receiveDigitString("0")
+        model.performOperation()
+        XCTAssertEqual(model.display, "-238")
+    }
+    
     private static func createApplicationWithFirstInputOfZero() -> Application {
         return Application()
     }

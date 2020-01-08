@@ -79,7 +79,9 @@ struct ContentView: View {
                 DigitButton(digit: "5", model: model)
                 DigitButton(digit: "6", model: model)
                 
-                Button(action: {}) {
+                Button(action: {
+                    self.model.specifyOperation(.subtraction)
+                }) {
                     Text("-")
                         .padding()
                         .foregroundColor(Color.black)

@@ -55,6 +55,7 @@ final class ContentViewModel: ObservableObject {
     enum Operation {
         case none
         case addition
+        case subtraction
     }
     
     private var operation: Operation
@@ -90,8 +91,10 @@ final class ContentViewModel: ObservableObject {
             return String(app.firstInput)
         } else if state == .displayingSecondInput {
             return String(app.secondInput)
-        } else {
+        } else if operation == .addition {
             return String(app.sum)
+        } else {
+            return String(app.difference)
         }
     }
 }
