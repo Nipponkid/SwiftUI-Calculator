@@ -9,7 +9,7 @@
 @testable import Calculator
 import XCTest
 
-class ContentViewModelTests: XCTestCase {
+final class ContentViewModelTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
@@ -42,11 +42,11 @@ class ContentViewModelTests: XCTestCase {
         XCTAssertEqual(model.display, String(previousFirstInput) + "5")
     }
     
-    func test_isInAcceptingSecondInputStateAfterAnOperationIsSpecified() {
+    func test_isInOperationSpecifiedStateAfterAnOperationIsSpecified() {
         let app = Application()
         let model = ContentViewModel(for: app)
         model.specifyOperation(.addition)
-        XCTAssertEqual(model.state, .acceptingSecondInput)
+        XCTAssertEqual(model.state, .operationSpecified)
     }
     
     func test_digitInputAgainstSecondInputOfZeroDisplaysThatDigit() {

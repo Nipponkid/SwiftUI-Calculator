@@ -29,7 +29,7 @@ final class ContentViewModel: ObservableObject {
     
     enum State {
         case acceptingFirstInput
-        case acceptingSecondInput
+        case operationSpecified
         case displayingResult
     }
     
@@ -57,7 +57,7 @@ final class ContentViewModel: ObservableObject {
     }
     
     func specifyOperation(_ operation: Operation) {
-        state = .acceptingSecondInput
+        state = .operationSpecified
     }
     
     private func determineCorrectInputToDisplay() -> String {
