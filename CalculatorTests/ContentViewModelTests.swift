@@ -74,19 +74,11 @@ final class ContentViewModelTests: XCTestCase {
     }
     
     func test_digitInputAgainstSecondInputOfZeroDisplaysThatDigit() {
-        let app = ContentViewModelTests.createApplicationWithSecondInputOfZero()
-        let model = ContentViewModel(for: app)
-        model.receiveDigitString("4")
-        XCTAssertEqual(model.display, String(app.secondInput))
-    }
-    
-    func test_performingOperationInOperationSpecifiedStateSetsApplicationsSecondInputEqualToItsFirstInput() {
         let app = Application()
-        app.receiveDigit(Digit.seven)
         let model = ContentViewModel(for: app)
         model.specifyOperation(.addition)
-        model.performOperation()
-        XCTAssertEqual(app.secondInput, app.firstInput)
+        model.receiveDigitString("4")
+        XCTAssertEqual(model.display, "4")
     }
     
     func test_isInDisplayingResultStateAfterPerformingOperation() {
@@ -100,6 +92,7 @@ final class ContentViewModelTests: XCTestCase {
     func test_isDisplayingSumOfBothApplicationInputsAfterPerformingAddition() {
         let app = Application()
         let model = ContentViewModel(for: app)
+        
         model.receiveDigitString("2")
         model.specifyOperation(.addition)
         model.receiveDigitString("2")
@@ -109,13 +102,12 @@ final class ContentViewModelTests: XCTestCase {
     
     func test_digitInputAgainstSecondInputOfNonZeroAppendsThatDigitToDisplay() {
         let app = Application()
-        app.acceptSecondInput()
-        app.receiveDigit(Digit.nine)
-        let previousSecondInput = app.secondInput
-        
         let model = ContentViewModel(for: app)
+        
+        model.specifyOperation(.addition)
+        model.receiveDigitString("9")
         model.receiveDigitString("0")
-        XCTAssertEqual(model.display, String(previousSecondInput) + "0")
+        XCTAssertEqual(model.display, "90")
     }
     
     private static func createApplicationWithFirstInputOfZero() -> Application {

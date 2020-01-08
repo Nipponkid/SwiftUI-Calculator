@@ -16,6 +16,7 @@ struct AdditionButton: View {
     
     var body: some View {
         Button(action: {
+            self.model.specifyOperation(.addition)
             self.swapBackgroundAndForegroundColors()
         }) {
             Text("+")

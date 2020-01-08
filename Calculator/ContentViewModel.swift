@@ -17,6 +17,7 @@ final class ContentViewModel: ObservableObject {
         app = application
         state = .acceptingFirstInput
         display = "0"
+        operation = .none
     }
 
     // MARK: - Querying Display
@@ -46,18 +47,24 @@ final class ContentViewModel: ObservableObject {
             state = .displayingSecondInput
         }
         
-        updateDisplay()
+        display = determineWhatToDisplay()
     }
     
     // MARK: - Performing Operations
     
     enum Operation {
+        case none
         case addition
     }
     
+    private var operation: Operation
+    
     func specifyOperation(_ operation: Operation) {
         state = .operationSpecified
+        self.operation = operation
         app.acceptSecondInput()
+        
+        display = determineWhatToDisplay()
     }
     
     func performOperation() {
@@ -68,23 +75,17 @@ final class ContentViewModel: ObservableObject {
             }
         }
         state = .displayingResult
+        
+        display = determineWhatToDisplay()
     }
     
-    private func determineCorrectInputToDisplay() -> String {
-        if app.state == .acceptingFirstInput {
+    private func determineWhatToDisplay() -> String {
+        if state == .acceptingFirstInput || state == .operationSpecified {
             return String(app.firstInput)
-        } else {
+        } else if state == .displayingSecondInput {
             return String(app.secondInput)
-        }
-    }
-    
-    // This method only exists because display can't be a computed property. If
-    // it could be, this logic would be directly instead the display property
-    private func updateDisplay() {
-        if state == .acceptingFirstInput {
-            display = determineCorrectInputToDisplay()
         } else {
-            display = String(app.sum)
+            return String(app.sum)
         }
     }
 }

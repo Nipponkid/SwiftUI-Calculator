@@ -14,6 +14,7 @@ struct DigitButton: View {
     
     var body: some View {
         Button(action: {
+            self.model.receiveDigitString(self.digit)
         }) {
             Text(digit)
                 .padding()

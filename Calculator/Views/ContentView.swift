@@ -112,7 +112,7 @@ struct ContentView: View {
                 .background(Color.gray)
                 
                 Button(action: {
-                    
+                    self.model.performOperation()
                 }) {
                     Text("=")
                         .padding()
