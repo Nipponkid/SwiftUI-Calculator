@@ -30,6 +30,7 @@ final class ContentViewModel: ObservableObject {
     enum State {
         case acceptingFirstInput
         case operationSpecified
+        case displayingSecondInput
         case displayingResult
     }
     
@@ -40,6 +41,10 @@ final class ContentViewModel: ObservableObject {
     func receiveDigitString(_ digitString: String) {
         let digit = Digit(rawValue: digitString)!
         app.receiveDigit(digit)
+        
+        if state == .operationSpecified {
+            state = .displayingSecondInput
+        }
         
         updateDisplay()
     }
