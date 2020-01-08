@@ -45,6 +45,8 @@ final class ContentViewModel: ObservableObject {
         
         if state == .operationSpecified {
             state = .displayingSecondInput
+        } else if state == .displayingResult {
+            state = .acceptingFirstInput
         }
         
         display = determineWhatToDisplay()

@@ -144,6 +144,16 @@ final class ContentViewModelTests: XCTestCase {
         XCTAssertEqual(model.display, "-238")
     }
     
+    func test_isInAcceptingFirstInputStateAfterDigitInputInDisplayingResultsState() {
+        let app = Application()
+        let model = ContentViewModel(for: app)
+        
+        model.specifyOperation(.subtraction)
+        model.performOperation()
+        model.receiveDigitString("2")
+        XCTAssertEqual(model.state, .acceptingFirstInput)
+    }
+    
     private static func createApplicationWithFirstInputOfZero() -> Application {
         return Application()
     }
