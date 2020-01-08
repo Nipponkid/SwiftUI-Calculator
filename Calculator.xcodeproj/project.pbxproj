@@ -25,6 +25,7 @@
 		1BD344CB23A02E9500C3CCC9 /* ApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD344CA23A02E9500C3CCC9 /* ApplicationTests.swift */; };
 		1BEAE1BE23C62CE0006FAFEF /* SubtractionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEAE1BD23C62CE0006FAFEF /* SubtractionButton.swift */; };
 		1BEAE1C023C62DC9006FAFEF /* MultiplicationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEAE1BF23C62DC9006FAFEF /* MultiplicationButton.swift */; };
+		1BEAE1C223C62EA4006FAFEF /* DivisionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEAE1C123C62EA4006FAFEF /* DivisionButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		1BD344CA23A02E9500C3CCC9 /* ApplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTests.swift; sourceTree = "<group>"; };
 		1BEAE1BD23C62CE0006FAFEF /* SubtractionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractionButton.swift; sourceTree = "<group>"; };
 		1BEAE1BF23C62DC9006FAFEF /* MultiplicationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationButton.swift; sourceTree = "<group>"; };
+		1BEAE1C123C62EA4006FAFEF /* DivisionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				1B00CC08238A1A80000B4E7E /* ContentView.swift */,
 				1B83A17423B86C5600F8E8E2 /* ContentViewModel.swift */,
 				1B6B53A1238F6D2F00CCDEEA /* DigitButton.swift */,
+				1BEAE1C123C62EA4006FAFEF /* DivisionButton.swift */,
 				1BD2B8D6239984FC0055BAC1 /* NumberDisplay.swift */,
 				1BEAE1BD23C62CE0006FAFEF /* SubtractionButton.swift */,
 				1BEAE1BF23C62DC9006FAFEF /* MultiplicationButton.swift */,
@@ -263,6 +266,7 @@
 				1BEAE1C023C62DC9006FAFEF /* MultiplicationButton.swift in Sources */,
 				1B00CC05238A1A80000B4E7E /* AppDelegate.swift in Sources */,
 				1B00CC07238A1A80000B4E7E /* SceneDelegate.swift in Sources */,
+				1BEAE1C223C62EA4006FAFEF /* DivisionButton.swift in Sources */,
 				1B83A18223BFBC2E00F8E8E2 /* Digit.swift in Sources */,
 				1B00CC09238A1A80000B4E7E /* ContentView.swift in Sources */,
 				1BD2B8D7239984FC0055BAC1 /* NumberDisplay.swift in Sources */,

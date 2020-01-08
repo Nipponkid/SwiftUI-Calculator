@@ -49,15 +49,19 @@ struct ContentView: View {
                 }
                 .background(Color.white)
                 
-                Button(action: {
-                    self.model.specifyOperation(.division)
-                }) {
-                    Text("÷")
-                        .padding()
-                        .foregroundColor(Color.black)
-                        .frame(maxWidth: .infinity)
+                if model.state == .operationSpecified && model.operation == .division {
+                    DivisionButton(
+                        model: model,
+                        backgroundColor: .white,
+                        foregroundColor: .orange
+                    )
+                } else {
+                    DivisionButton(
+                        model: model,
+                        backgroundColor: .orange,
+                        foregroundColor: .white
+                    )
                 }
-                .background(Color.orange)
             }
             
             Spacer()
