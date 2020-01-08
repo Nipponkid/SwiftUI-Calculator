@@ -58,6 +58,7 @@ final class ContentViewModel: ObservableObject {
     
     func specifyOperation(_ operation: Operation) {
         state = .operationSpecified
+        app.acceptSecondInput()
     }
     
     private func determineCorrectInputToDisplay() -> String {
