@@ -33,6 +33,7 @@ final class ContentViewModel: ObservableObject {
         case operationSpecified
         case displayingSecondInput
         case displayingResult
+        case displayingError
     }
     
     private(set) var state: State
@@ -79,7 +80,12 @@ final class ContentViewModel: ObservableObject {
                 app.receiveDigit(digit)
             }
         }
-        state = .displayingResult
+        
+        if app.secondInput == 0 && operation == .division {
+            state = .displayingError
+        } else {
+            state = .displayingResult
+        }
         
         display = determineWhatToDisplay()
     }
@@ -95,6 +101,8 @@ final class ContentViewModel: ObservableObject {
             return String(app.firstInput)
         } else if state == .displayingSecondInput {
             return String(app.secondInput)
+        } else if state == .displayingError {
+            return ""
         } else if operation == .addition {
             return String(app.sum)
         } else if operation == .subtraction {
