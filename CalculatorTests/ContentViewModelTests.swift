@@ -154,6 +154,18 @@ final class ContentViewModelTests: XCTestCase {
         XCTAssertEqual(model.state, .acceptingFirstInput)
     }
     
+    func test_displaysProduct() {
+        let app = Application()
+        let model = ContentViewModel(for: app)
+        
+        model.receiveDigitString("9")
+        model.specifyOperation(.multiplication)
+        model.receiveDigitString("1")
+        model.receiveDigitString("1")
+        model.performOperation()
+        XCTAssertEqual(model.display, "99")
+    }
+    
     private static func createApplicationWithFirstInputOfZero() -> Application {
         return Application()
     }
