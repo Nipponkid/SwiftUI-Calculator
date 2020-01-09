@@ -80,7 +80,7 @@ final class ContentViewModelTests: XCTestCase {
     }
     
     func test_isDisplayingSumOfBothApplicationInputsAfterPerformingAddition() {
-        model!.receiveDigitString("2")
+        receiveFirstInput("2")
         model!.specifyOperation(.addition)
         model!.receiveDigitString("2")
         model!.performOperation()
@@ -95,22 +95,19 @@ final class ContentViewModelTests: XCTestCase {
     }
     
     func test_isInAcceptingFirstInputStateAfterResetting() {
-        model!.receiveDigitString("0")
-        model!.receiveDigitString("2")
-        
+        receiveFirstInput("02")
         model!.reset()
         XCTAssertEqual(model!.state, .acceptingFirstInput)
     }
     
     func test_displayingZeroAfterResetting() {
-        model!.receiveDigitString("7")
+        receiveFirstInput("7")
         model!.reset()
         XCTAssertEqual(model!.display, "0")
     }
     
     func test_displaysDifference() {
-        model!.receiveDigitString("6")
-        model!.receiveDigitString("2")
+        receiveFirstInput("62")
         model!.specifyOperation(.subtraction)
         model!.receiveDigitString("3")
         model!.receiveDigitString("0")
@@ -127,7 +124,7 @@ final class ContentViewModelTests: XCTestCase {
     }
     
     func test_displaysProduct() {
-        model!.receiveDigitString("9")
+        receiveFirstInput("9")
         model!.specifyOperation(.multiplication)
         model!.receiveDigitString("1")
         model!.receiveDigitString("1")
@@ -136,32 +133,33 @@ final class ContentViewModelTests: XCTestCase {
     }
     
     func test_displaysQuotientIfSecondInputForDivisionIsNotZero() {
-        model!.receiveDigitString("3")
-        model!.receiveDigitString("0")
+        receiveFirstInput("30")
         model!.specifyOperation(.division)
         model!.receiveDigitString("5")
         model!.performOperation()
-        
         XCTAssertEqual(model!.display, "6")
     }
     
     func test_isInDisplayingErrorStateIfSecondInputForDivisionIsZero() {
-        model!.receiveDigitString("2")
+        receiveFirstInput("2")
         model!.specifyOperation(.division)
         model!.receiveDigitString("0")
         model!.performOperation()
-        
         XCTAssertEqual(model!.state, .displayingError)
     }
     
     func test_displaysErrorIfSecondInputForDivisionIsZero() {
-        model!.receiveDigitString("9")
-        model!.receiveDigitString("3")
+        receiveFirstInput("93")
         model!.specifyOperation(.division)
         model!.receiveDigitString("0")
         model!.performOperation()
-        
         XCTAssertEqual(model!.display, "Error")
+    }
+    
+    private func receiveFirstInput(_ digitSequence: String) {
+        for digitCharacter in digitSequence {
+            model!.receiveDigitString(String(digitCharacter))
+        }
     }
     
     private static func createApplicationWithFirstInputOfZero() -> Application {
