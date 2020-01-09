@@ -11,19 +11,20 @@ import XCTest
 
 final class ContentViewModelTests: XCTestCase {
 
+    private var model: ContentViewModel?
+    
     override func setUp() {
         super.setUp()
-        
+        model = ContentViewModel(for: Application())
     }
 
     override func tearDown() {
+        model = nil
         super.tearDown()
     }
     
     func test_aNewContentViewModelIsInAcceptingFirstInputState() {
-        let app = Application()
-        let model = ContentViewModel(for: app)
-        XCTAssertEqual(model.state, .acceptingFirstInput)
+        XCTAssertEqual(model!.state, .acceptingFirstInput)
     }
 
     func test_digitInputAgainstFirstInputOfZeroDisplaysThatDigit() {
@@ -43,10 +44,8 @@ final class ContentViewModelTests: XCTestCase {
     }
     
     func test_isInOperationSpecifiedStateAfterAnOperationIsSpecified() {
-        let app = Application()
-        let model = ContentViewModel(for: app)
-        model.specifyOperation(.addition)
-        XCTAssertEqual(model.state, .operationSpecified)
+        model!.specifyOperation(.addition)
+        XCTAssertEqual(model!.state, .operationSpecified)
     }
     
     func test_applicationIsInAcceptingSecondInputStateAfterOperationIsSpecified() {
@@ -57,151 +56,112 @@ final class ContentViewModelTests: XCTestCase {
     }
     
     func test_digitInputInOperationSpecifiedStateIsDisplayed() {
-        let app = Application()
-        let model = ContentViewModel(for: app)
-        model.specifyOperation(.addition)
-        
-        model.receiveDigitString("6")
-        XCTAssertEqual(model.display, "6")
+        model!.specifyOperation(.addition)
+        model!.receiveDigitString("6")
+        XCTAssertEqual(model!.display, "6")
     }
     
     func test_isInDisplayingSecondInputStateAfterFirstDigitIsEnteredInOperationSpecifiedState() {
-        let app = Application()
-        let model = ContentViewModel(for: app)
-        model.specifyOperation(.addition)
-        model.receiveDigitString("0")
-        XCTAssertEqual(model.state, .displayingSecondInput)
+        model!.specifyOperation(.addition)
+        model!.receiveDigitString("0")
+        XCTAssertEqual(model!.state, .displayingSecondInput)
     }
     
     func test_digitInputAgainstSecondInputOfZeroDisplaysThatDigit() {
-        let app = Application()
-        let model = ContentViewModel(for: app)
-        model.specifyOperation(.addition)
-        model.receiveDigitString("4")
-        XCTAssertEqual(model.display, "4")
+        model!.specifyOperation(.addition)
+        model!.receiveDigitString("4")
+        XCTAssertEqual(model!.display, "4")
     }
     
     func test_isInDisplayingResultStateAfterPerformingOperation() {
-        let app = Application()
-        let model = ContentViewModel(for: app)
-        model.specifyOperation(.addition)
-        model.performOperation()
-        XCTAssertEqual(model.state, .displayingResult)
+        model!.specifyOperation(.addition)
+        model!.performOperation()
+        XCTAssertEqual(model!.state, .displayingResult)
     }
     
     func test_isDisplayingSumOfBothApplicationInputsAfterPerformingAddition() {
-        let app = Application()
-        let model = ContentViewModel(for: app)
-        
-        model.receiveDigitString("2")
-        model.specifyOperation(.addition)
-        model.receiveDigitString("2")
-        model.performOperation()
-        XCTAssertEqual(model.display, "4")
+        model!.receiveDigitString("2")
+        model!.specifyOperation(.addition)
+        model!.receiveDigitString("2")
+        model!.performOperation()
+        XCTAssertEqual(model!.display, "4")
     }
     
     func test_digitInputAgainstSecondInputOfNonZeroAppendsThatDigitToDisplay() {
-        let app = Application()
-        let model = ContentViewModel(for: app)
-        
-        model.specifyOperation(.addition)
-        model.receiveDigitString("9")
-        model.receiveDigitString("0")
-        XCTAssertEqual(model.display, "90")
+        model!.specifyOperation(.addition)
+        model!.receiveDigitString("9")
+        model!.receiveDigitString("0")
+        XCTAssertEqual(model!.display, "90")
     }
     
     func test_isInAcceptingFirstInputStateAfterResetting() {
-        let app = Application()
-        let model = ContentViewModel(for: app)
+        model!.receiveDigitString("0")
+        model!.receiveDigitString("2")
         
-        model.receiveDigitString("0")
-        model.receiveDigitString("2")
-        
-        model.reset()
-        XCTAssertEqual(model.state, .acceptingFirstInput)
+        model!.reset()
+        XCTAssertEqual(model!.state, .acceptingFirstInput)
     }
     
     func test_displayingZeroAfterResetting() {
-        let app = Application()
-        let model = ContentViewModel(for: app)
-        
-        model.receiveDigitString("7")
-        model.reset()
-        XCTAssertEqual(model.display, "0")
+        model!.receiveDigitString("7")
+        model!.reset()
+        XCTAssertEqual(model!.display, "0")
     }
     
     func test_displaysDifference() {
-        let app = Application()
-        let model = ContentViewModel(for: app)
-        
-        model.receiveDigitString("6")
-        model.receiveDigitString("2")
-        model.specifyOperation(.subtraction)
-        model.receiveDigitString("3")
-        model.receiveDigitString("0")
-        model.receiveDigitString("0")
-        model.performOperation()
-        XCTAssertEqual(model.display, "-238")
+        model!.receiveDigitString("6")
+        model!.receiveDigitString("2")
+        model!.specifyOperation(.subtraction)
+        model!.receiveDigitString("3")
+        model!.receiveDigitString("0")
+        model!.receiveDigitString("0")
+        model!.performOperation()
+        XCTAssertEqual(model!.display, "-238")
     }
     
     func test_isInAcceptingFirstInputStateAfterDigitInputInDisplayingResultsState() {
-        let app = Application()
-        let model = ContentViewModel(for: app)
-        
-        model.specifyOperation(.subtraction)
-        model.performOperation()
-        model.receiveDigitString("2")
-        XCTAssertEqual(model.state, .acceptingFirstInput)
+        model!.specifyOperation(.subtraction)
+        model!.performOperation()
+        model!.receiveDigitString("2")
+        XCTAssertEqual(model!.state, .acceptingFirstInput)
     }
     
     func test_displaysProduct() {
-        let app = Application()
-        let model = ContentViewModel(for: app)
-        
-        model.receiveDigitString("9")
-        model.specifyOperation(.multiplication)
-        model.receiveDigitString("1")
-        model.receiveDigitString("1")
-        model.performOperation()
-        XCTAssertEqual(model.display, "99")
+        model!.receiveDigitString("9")
+        model!.specifyOperation(.multiplication)
+        model!.receiveDigitString("1")
+        model!.receiveDigitString("1")
+        model!.performOperation()
+        XCTAssertEqual(model!.display, "99")
     }
     
     func test_displaysQuotientIfSecondInputForDivisionIsNotZero() {
-        let app = Application()
-        let model = ContentViewModel(for: app)
+        model!.receiveDigitString("3")
+        model!.receiveDigitString("0")
+        model!.specifyOperation(.division)
+        model!.receiveDigitString("5")
+        model!.performOperation()
         
-        model.receiveDigitString("3")
-        model.receiveDigitString("0")
-        model.specifyOperation(.division)
-        model.receiveDigitString("5")
-        model.performOperation()
-        
-        XCTAssertEqual(model.display, "6")
+        XCTAssertEqual(model!.display, "6")
     }
     
     func test_isInDisplayingErrorStateIfSecondInputForDivisionIsZero() {
-        let app = Application()
-        let model = ContentViewModel(for: app)
+        model!.receiveDigitString("2")
+        model!.specifyOperation(.division)
+        model!.receiveDigitString("0")
+        model!.performOperation()
         
-        model.receiveDigitString("2")
-        model.specifyOperation(.division)
-        model.receiveDigitString("0")
-        model.performOperation()
-        
-        XCTAssertEqual(model.state, .displayingError)
+        XCTAssertEqual(model!.state, .displayingError)
     }
     
     func test_displaysErrorIfSecondInputForDivisionIsZero() {
-        let app = Application()
-        let model = ContentViewModel(for: app)
+        model!.receiveDigitString("9")
+        model!.receiveDigitString("3")
+        model!.specifyOperation(.division)
+        model!.receiveDigitString("0")
+        model!.performOperation()
         
-        model.receiveDigitString("9")
-        model.receiveDigitString("3")
-        model.specifyOperation(.division)
-        model.receiveDigitString("0")
-        model.performOperation()
-        
-        XCTAssertEqual(model.display, "Error")
+        XCTAssertEqual(model!.display, "Error")
     }
     
     private static func createApplicationWithFirstInputOfZero() -> Application {
