@@ -28,19 +28,15 @@ final class ContentViewModelTests: XCTestCase {
     }
 
     func test_digitInputAgainstFirstInputOfZeroDisplaysThatDigit() {
-        let app = ContentViewModelTests.createApplicationWithFirstInputOfZero()
-        let model = ContentViewModel(for: app)
-        model.receiveDigitString("2")
-        XCTAssertEqual(model.display, String(app.firstInput))
+        receiveFirstInput("0")
+        model!.receiveDigitString("2")
+        XCTAssertEqual(model!.display, "2")
     }
     
     func test_digitInputAgainstFirstInputOfNonZeroAppendsThatDigitToDisplay() {
-        let app = ContentViewModelTests.createApplicationWithFirstInputOfNonZero()
-        let previousFirstInput = app.firstInput
-        
-        let model = ContentViewModel(for: app)
-        model.receiveDigitString("5")
-        XCTAssertEqual(model.display, String(previousFirstInput) + "5")
+        receiveFirstInput("4376")
+        model!.receiveDigitString("5")
+        XCTAssertEqual(model!.display, "43765")
     }
     
     func test_isInOperationSpecifiedStateAfterAnOperationIsSpecified() {
@@ -99,7 +95,7 @@ final class ContentViewModelTests: XCTestCase {
         XCTAssertEqual(model!.state, .acceptingFirstInput)
     }
     
-    func test_displayingZeroAfterResetting() {
+    func test_displaysZeroAfterResetting() {
         receiveFirstInput("7")
         model!.reset()
         XCTAssertEqual(model!.display, "0")
@@ -168,11 +164,5 @@ final class ContentViewModelTests: XCTestCase {
     
     private static func createApplicationWithFirstInputOfZero() -> Application {
         return Application()
-    }
-    
-    private static func createApplicationWithFirstInputOfNonZero() -> Application {
-        let app = Application()
-        app.receiveDigit(Digit.eight)
-        return app
     }
 }
