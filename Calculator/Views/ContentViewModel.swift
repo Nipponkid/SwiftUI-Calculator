@@ -134,7 +134,7 @@ final class ContentViewModel: ObservableObject {
             
             switch operation {
             case .none:
-                display = "Error"
+                display = "0"
             case .addition:
                 display = String(app.sum)
             case .subtraction:

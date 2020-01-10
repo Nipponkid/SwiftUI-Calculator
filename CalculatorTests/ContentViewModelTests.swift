@@ -138,6 +138,11 @@ final class ContentViewModelTests: XCTestCase {
         XCTAssertEqual(model!.display, "6")
     }
     
+    func test_performingOperationBeforeAnyInputsSpecifiedDisplaysZero() {
+        model!.performOperation()
+        XCTAssertEqual(model!.display, "0")
+    }
+    
     private func receiveInput(_ digitSequence: String) {
         for digitCharacter in digitSequence {
             model!.receiveDigitString(String(digitCharacter))
