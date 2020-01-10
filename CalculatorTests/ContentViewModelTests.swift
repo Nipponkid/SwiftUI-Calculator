@@ -102,10 +102,7 @@ final class ContentViewModelTests: XCTestCase {
     }
     
     func test_displaysDifference() {
-        receiveFirstInput("62", for: .subtraction)
-        model!.receiveDigitString("3")
-        model!.receiveDigitString("0")
-        model!.receiveDigitString("0")
+        receiveFirstInput("62", for: .subtraction, withSecondInput: "300")
         model!.performOperation()
         XCTAssertEqual(model!.display, "-238")
     }
@@ -118,38 +115,37 @@ final class ContentViewModelTests: XCTestCase {
     }
     
     func test_displaysProduct() {
-        receiveFirstInput("9", for: .multiplication)
-        model!.receiveDigitString("1")
-        model!.receiveDigitString("1")
+        receiveFirstInput("9", for: .multiplication, withSecondInput: "11")
         model!.performOperation()
         XCTAssertEqual(model!.display, "99")
     }
     
     func test_displaysQuotientIfSecondInputForDivisionIsNotZero() {
-        receiveFirstInput("30", for: .division)
-        model!.receiveDigitString("5")
+        receiveFirstInput("30", for: .division, withSecondInput: "5")
         model!.performOperation()
         XCTAssertEqual(model!.display, "6")
     }
     
     func test_isInDisplayingErrorStateIfSecondInputForDivisionIsZero() {
-        receiveFirstInput("2", for: .division)
-        model!.receiveDigitString("0")
+        receiveFirstInput("2", for: .division, withSecondInput: "0")
         model!.performOperation()
         XCTAssertEqual(model!.state, .displayingError)
     }
     
     func test_displaysErrorIfSecondInputForDivisionIsZero() {
-        receiveFirstInput("93", for: .division)
-        model!.receiveDigitString("0")
+        receiveFirstInput("93", for: .division, withSecondInput: "0")
         model!.performOperation()
         XCTAssertEqual(model!.display, "Error")
     }
     
-    private func receiveFirstInput(_ digitSequence: String) {
+    private func receiveInput(_ digitSequence: String) {
         for digitCharacter in digitSequence {
             model!.receiveDigitString(String(digitCharacter))
         }
+    }
+    
+    private func receiveFirstInput(_ digitSequence: String) {
+        receiveInput(digitSequence)
     }
     
     private func receiveFirstInput(_ digitSequence: String,
@@ -158,11 +154,14 @@ final class ContentViewModelTests: XCTestCase {
         model!.specifyOperation(operation)
     }
     
-    private func acceptSecondInput() {
-        model!.specifyOperation(.addition)
+    private func receiveFirstInput(_ firstInputDigitSequence: String,
+                                   for operation: ContentViewModel.Operation,
+                                   withSecondInput secondInputDigitSequence: String) {
+        receiveFirstInput(firstInputDigitSequence, for: operation)
+        receiveInput(secondInputDigitSequence)
     }
     
-    private static func createApplicationWithFirstInputOfZero() -> Application {
-        return Application()
+    private func acceptSecondInput() {
+        model!.specifyOperation(.addition)
     }
 }
