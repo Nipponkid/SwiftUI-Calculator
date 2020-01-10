@@ -64,6 +64,7 @@ final class ContentViewModel: ObservableObject {
     }
     
     private(set) var operation: Operation
+    private var hasBeenCleared = true
     
     func specifyOperation(_ operation: Operation) {
         state = .operationSpecified
@@ -74,14 +75,35 @@ final class ContentViewModel: ObservableObject {
     }
     
     func performOperation() {
-        specifySecondInputIfNecessary()
-        displayOperationResult()
+        if hasBeenCleared {
+            specifySecondInputIfNecessary()
+            displayOperationResult()
+            hasBeenCleared = false
+        } else {
+            let secondInput = app.secondInput
+            
+            app = Application()
+            
+            // Use current display as first input
+            for digitCharacter in display {
+                app.receiveDigit(Digit(rawValue: String(digitCharacter))!)
+            }
+            app.acceptSecondInput()
+            
+            // Use previous second input as new second input
+            for digit in secondInput.digits {
+                app.receiveDigit(digit)
+            }
+            
+            displayOperationResult()
+        }
     }
     
     func reset() {
         app = Application()
         state = .acceptingFirstInput
         display = determineWhatToDisplay()
+        hasBeenCleared = true
     }
     
     private func determineWhatToDisplay() -> String {

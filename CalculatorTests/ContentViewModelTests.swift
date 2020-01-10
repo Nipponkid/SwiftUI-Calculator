@@ -131,6 +131,13 @@ final class ContentViewModelTests: XCTestCase {
         XCTAssertEqual(model!.display, "Error")
     }
     
+    func test_performingOperationWithoutResettingUsesThePreviousSecondInputAndOperation() {
+        receiveFirstInput("2", for: .addition, withSecondInput: "2")
+        model!.performOperation()
+        model!.performOperation()
+        XCTAssertEqual(model!.display, "6")
+    }
+    
     private func receiveInput(_ digitSequence: String) {
         for digitCharacter in digitSequence {
             model!.receiveDigitString(String(digitCharacter))
