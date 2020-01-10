@@ -29,7 +29,7 @@ struct ContentView: View {
                         .foregroundColor(Color.black)
                         .frame(maxWidth: .infinity)
                 }
-                .background(Color.gray)
+                .buttonStyle(UtilityButtonStyle())
                 
                 Button(action: {}) {
                     Text("+/-")
@@ -37,7 +37,7 @@ struct ContentView: View {
                         .foregroundColor(Color.black)
                         .frame(maxWidth: .infinity)
                 }
-                .background(Color.gray)
+                .buttonStyle(UtilityButtonStyle())
                 
                 Button(action: {}) {
                     Text("%")
@@ -45,7 +45,7 @@ struct ContentView: View {
                         .foregroundColor(Color.black)
                         .frame(maxWidth: .infinity)
                 }
-                .background(Color.gray)
+                .buttonStyle(UtilityButtonStyle())
                 
                 if model.state == .operationSpecified && model.operation == .division {
                     DivisionButton(
