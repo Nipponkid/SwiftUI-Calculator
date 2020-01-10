@@ -83,11 +83,23 @@ final class ContentViewModel: ObservableObject {
         
         if app.secondInput == 0 && operation == .division {
             state = .displayingError
+            display = "Error"
         } else {
             state = .displayingResult
+            
+            switch operation {
+            case .none:
+                display = "Error"
+            case .addition:
+                display = String(app.sum)
+            case .subtraction:
+                display = String(app.difference)
+            case .multiplication:
+                display = String(app.product)
+            case .division:
+                display = String(app.quotient)
+            }
         }
-        
-        display = determineWhatToDisplay()
     }
     
     func reset() {
@@ -101,16 +113,8 @@ final class ContentViewModel: ObservableObject {
             return String(app.firstInput)
         } else if state == .displayingSecondInput {
             return String(app.secondInput)
-        } else if state == .displayingError {
-            return "Error"
-        } else if operation == .addition {
-            return String(app.sum)
-        } else if operation == .subtraction {
-            return String(app.difference)
-        } else if operation == .multiplication {
-            return String(app.product)
         } else {
-            return String(app.quotient)
+            return "Error"
         }
     }
 }
