@@ -74,14 +74,37 @@ final class ContentViewModel: ObservableObject {
     }
     
     func performOperation() {
+        specifySecondInputIfNecessary()
+        displayOperationResult()
+    }
+    
+    func reset() {
+        app = Application()
+        state = .acceptingFirstInput
+        display = determineWhatToDisplay()
+    }
+    
+    private func determineWhatToDisplay() -> String {
+        if state == .acceptingFirstInput || state == .operationSpecified {
+            return String(app.firstInput)
+        } else if state == .displayingSecondInput {
+            return String(app.secondInput)
+        } else {
+            return "Error"
+        }
+    }
+    
+    private func specifySecondInputIfNecessary() {
         if state == .operationSpecified {
             let digits = app.firstInput.digits
             for digit in digits {
                 app.receiveDigit(digit)
             }
         }
-        
-        if app.secondInput == 0 && operation == .division {
+    }
+    
+    private func displayOperationResult() {
+        if isDividingByZero {
             state = .displayingError
             display = "Error"
         } else {
@@ -102,19 +125,7 @@ final class ContentViewModel: ObservableObject {
         }
     }
     
-    func reset() {
-        app = Application()
-        state = .acceptingFirstInput
-        display = determineWhatToDisplay()
-    }
-    
-    private func determineWhatToDisplay() -> String {
-        if state == .acceptingFirstInput || state == .operationSpecified {
-            return String(app.firstInput)
-        } else if state == .displayingSecondInput {
-            return String(app.secondInput)
-        } else {
-            return "Error"
-        }
+    private var isDividingByZero: Bool {
+        app.secondInput == 0 && operation == .division
     }
 }
