@@ -44,13 +44,6 @@ final class ContentViewModelTests: XCTestCase {
         XCTAssertEqual(model!.state, .operationSpecified)
     }
     
-    func test_applicationIsInAcceptingSecondInputStateAfterOperationIsSpecified() {
-        let app = Application()
-        let model = ContentViewModel(for: app)
-        model.specifyOperation(.addition)
-        XCTAssertEqual(app.state, .acceptingSecondInput)
-    }
-    
     func test_digitInputInOperationSpecifiedStateIsDisplayed() {
         acceptSecondInput()
         model!.receiveDigitString("6")
