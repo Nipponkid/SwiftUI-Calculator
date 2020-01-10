@@ -150,7 +150,7 @@ struct ContentView: View {
                         .foregroundColor(Color.black)
                         .frame(maxWidth: .infinity)
                 }
-                .background(Color.orange)
+                .buttonStyle(EqualsButtonStyle())
             }
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)

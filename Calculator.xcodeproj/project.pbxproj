@@ -28,6 +28,7 @@
 		1BEAE1C223C62EA4006FAFEF /* DivisionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEAE1C123C62EA4006FAFEF /* DivisionButton.swift */; };
 		1BEAE1C423C63746006FAFEF /* DigitButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEAE1C323C63746006FAFEF /* DigitButtonStyle.swift */; };
 		1BEAE1C623C922B1006FAFEF /* UtilityButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEAE1C523C922B1006FAFEF /* UtilityButtonStyle.swift */; };
+		1BEAE1C823C92393006FAFEF /* EqualsButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEAE1C723C92393006FAFEF /* EqualsButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		1BEAE1C123C62EA4006FAFEF /* DivisionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionButton.swift; sourceTree = "<group>"; };
 		1BEAE1C323C63746006FAFEF /* DigitButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitButtonStyle.swift; sourceTree = "<group>"; };
 		1BEAE1C523C922B1006FAFEF /* UtilityButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityButtonStyle.swift; sourceTree = "<group>"; };
+		1BEAE1C723C92393006FAFEF /* EqualsButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualsButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				1BEAE1BF23C62DC9006FAFEF /* MultiplicationButton.swift */,
 				1BEAE1C323C63746006FAFEF /* DigitButtonStyle.swift */,
 				1BEAE1C523C922B1006FAFEF /* UtilityButtonStyle.swift */,
+				1BEAE1C723C92393006FAFEF /* EqualsButtonStyle.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				1BEAE1C223C62EA4006FAFEF /* DivisionButton.swift in Sources */,
 				1BEAE1C623C922B1006FAFEF /* UtilityButtonStyle.swift in Sources */,
 				1B83A18223BFBC2E00F8E8E2 /* Digit.swift in Sources */,
+				1BEAE1C823C92393006FAFEF /* EqualsButtonStyle.swift in Sources */,
 				1B00CC09238A1A80000B4E7E /* ContentView.swift in Sources */,
 				1BD2B8D7239984FC0055BAC1 /* NumberDisplay.swift in Sources */,
 				1B6B53A2238F6D2F00CCDEEA /* DigitButton.swift in Sources */,
