@@ -9,42 +9,38 @@
 import XCTest
 @testable import Calculator
 
-class ApplicationTests: XCTestCase {
+final class ApplicationTests: XCTestCase {
     
-    private var application: Application?
+    private var app: Application?
     
     override func setUp() {
         super.setUp()
-        application = Application()
+        app = Application()
     }
 
     override func tearDown() {
-        application = nil
+        app = nil
         super.tearDown()
     }
     
     func test_aNewApplicationWillBeAcceptingItsFirstInput() {
-        let app = Application()
-        XCTAssertEqual(app.state, .acceptingFirstInput)
+        XCTAssertEqual(app!.state, .acceptingFirstInput)
     }
     
     func test_aFirstInputAcceptingApplicationWillHaveDigitsAppendedToItsFirstInput() {
-        let app = Application()
-        app.receiveDigit(Digit.five)
-        XCTAssertEqual(app.firstInput, 5)
+        app!.receiveDigit(Digit.five)
+        XCTAssertEqual(app!.firstInput, 5)
     }
     
     func test_aFirstInputAcceptingApplicationCanBeSwitchedToAcceptingASecondInput() {
-        let app = Application()
-        app.acceptSecondInput()
-        XCTAssertEqual(app.state, .acceptingSecondInput)
+        app!.acceptSecondInput()
+        XCTAssertEqual(app!.state, .acceptingSecondInput)
     }
     
     func test_aSecondInputAcceptingApplicationWillHaveDigitsAppendedToItsSecondInput() {
-        let app = Application()
-        app.acceptSecondInput()
-        app.receiveDigit(Digit.three)
-        XCTAssertEqual(app.secondInput, 3)
+        receiveFirstInput(0)
+        app!.receiveDigit(Digit.three)
+        XCTAssertEqual(app!.secondInput, 3)
     }
     
     func test_anApplicationOnlyAppendsDigitsToTheInputItIsCurrentlyAcceptingInputFor() {
@@ -61,44 +57,42 @@ class ApplicationTests: XCTestCase {
     }
     
     func test_sumIsSumOfBothInputs() {
-        let app = Application()
-        app.receiveDigit(Digit.two)
-        app.acceptSecondInput()
-        app.receiveDigit(Digit.two)
-        
-        XCTAssertEqual(app.sum, app.firstInput + app.secondInput)
+        receiveFirstInput(2, andSecondInput: 2)
+        XCTAssertEqual(app!.sum, 4)
     }
     
     func test_differenceIsDifferenceOfBothInputs() {
-        let app = Application()
-        app.receiveDigit(Digit.zero)
-        app.receiveDigit(Digit.one)
-        app.receiveDigit(Digit.zero)
-        app.receiveDigit(Digit.zero)
-        app.acceptSecondInput()
-        app.receiveDigit(Digit.five)
-        app.receiveDigit(Digit.five)
-        XCTAssertEqual(app.difference, 45)
+        receiveFirstInput(100, andSecondInput: 55)
+        XCTAssertEqual(app!.difference, 45)
     }
     
     func test_productIsProductOfBothInputs() {
-        let app = Application()
-        
-        app.receiveDigit(Digit.two)
-        app.acceptSecondInput()
-        app.receiveDigit(Digit.seven)
-        
-        XCTAssertEqual(app.product, 14)
+        receiveFirstInput(2, andSecondInput: 7)
+        XCTAssertEqual(app!.product, 14)
     }
     
     func test_quotientOfDivisionWithNonZeroDivisorIsQuotientOfBothInputs() {
-        let app = Application()
-        
-        app.receiveDigit(Digit.one)
-        app.receiveDigit(Digit.zero)
-        app.acceptSecondInput()
-        app.receiveDigit(Digit.five)
-        
-        XCTAssertEqual(app.quotient, 2)
+        receiveFirstInput(10, andSecondInput: 5)
+        XCTAssertEqual(app!.quotient, 2)
+    }
+    
+    private func receiveInput(_ input: Int) {
+        for digit in input.digits {
+            app!.receiveDigit(digit)
+        }
+    }
+    
+    private func receiveFirstInput(_ firstInput: Int) {
+        receiveInput(firstInput)
+        app!.acceptSecondInput()
+    }
+    
+    private func receiveSecondInput(_ secondInput: Int) {
+        receiveInput(secondInput)
+    }
+    
+    private func receiveFirstInput(_ firstInput: Int, andSecondInput secondInput: Int) {
+        receiveFirstInput(firstInput)
+        receiveSecondInput(secondInput)
     }
 }
