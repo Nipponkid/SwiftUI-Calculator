@@ -43,19 +43,6 @@ final class ApplicationTests: XCTestCase {
         XCTAssertEqual(app!.secondInput, 3)
     }
     
-    func test_anApplicationOnlyAppendsDigitsToTheInputItIsCurrentlyAcceptingInputFor() {
-        let firstInputAcceptingApp = Application()
-        firstInputAcceptingApp.receiveDigit(Digit.seven)
-        XCTAssertEqual(firstInputAcceptingApp.firstInput, 7)
-        XCTAssertEqual(firstInputAcceptingApp.secondInput, 0)
-        
-        let secondInputAcceptingApp = Application()
-        secondInputAcceptingApp.acceptSecondInput()
-        secondInputAcceptingApp.receiveDigit(Digit.seven)
-        XCTAssertEqual(secondInputAcceptingApp.firstInput, 0)
-        XCTAssertEqual(secondInputAcceptingApp.secondInput, 7)
-    }
-    
     func test_sumIsSumOfBothInputs() {
         receiveFirstInput(2, andSecondInput: 2)
         XCTAssertEqual(app!.sum, 4)
